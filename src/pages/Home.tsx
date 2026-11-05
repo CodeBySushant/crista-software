@@ -60,14 +60,7 @@ function Hero() {
   return (
     <section ref={ref} className="relative -mt-16 overflow-hidden pt-16" aria-labelledby="hero-title">
       <div className="grid-paper fade-mask-b pointer-events-none absolute inset-x-0 top-0 h-[720px] opacity-70" aria-hidden />
-      <div className="container relative pb-10 pt-14 sm:pt-20 lg:pt-24">
-        <motion.div initial={reduce ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="mb-8 flex flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full bg-white py-1 pl-1 pr-3 text-[12.5px] text-muted shadow-soft ring-1 ring-line">
-            <span className="rounded-full bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-white">Services</span>
-            <span className="rounded-full bg-brand-gradient px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-ink">Products</span>
-            Software engineering, two ways
-          </span>
-        </motion.div>
+      <div className="container relative pb-10 pt-20 sm:pt-28 lg:pt-36">
 
         <RevealText id="hero-title" text="Engineering Ideas Into Digital Impact." className="h-display max-w-[15ch] text-balance text-ink lg:max-w-[16ch]" />
 
@@ -101,10 +94,10 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.div style={{ y: yStage }} className="relative lg:-mr-24 xl:-mr-40">
+            <motion.div style={{ y: yStage }} className="relative lg:mr-8 xl:mr-12">
               <Mock kind="web" labelSide="left" />
             </motion.div>
-            <motion.div style={{ y: yPhone }} className="absolute -bottom-10 right-2 w-[30%] max-w-[210px] sm:right-6 lg:-bottom-16 lg:right-[-1rem]">
+            <motion.div style={{ y: yPhone }} className="absolute -bottom-10 right-2 w-[30%] max-w-[210px] sm:right-6 lg:-bottom-16 lg:right-0">
               <Mock kind="mobile" label={false} />
             </motion.div>
             <div className="absolute -left-3 bottom-10 hidden w-[230px] rounded-2xl bg-white p-4 shadow-lift ring-1 ring-line sm:block lg:-left-10">
