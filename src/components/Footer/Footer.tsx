@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { Logo } from '@/components/Logo/Logo';
-import { company } from '@/data/navigation';
+import { company, telHref } from '@/data/navigation';
 
 const cols = [
   {
@@ -81,9 +81,8 @@ export function Footer() {
               <p className="eyebrow text-white/40">Connect</p>
               <ul className="mt-5 space-y-3 text-[14px]">
                 <li>{company.email ? <a href={`mailto:${company.email}`} className="text-white/70 hover:text-white">{company.email}</a> : <Placeholder>Email</Placeholder>}</li>
-                <li>{company.phone ? <a href={`tel:${company.phone}`} className="text-white/70 hover:text-white">{company.phone}</a> : <Placeholder>Phone</Placeholder>}</li>
-                <li><Placeholder>LinkedIn</Placeholder></li>
-                <li><Placeholder>GitHub</Placeholder></li>
+                <li>{company.phone ? <a href={telHref(company.phone)} className="text-white/70 hover:text-white">{company.phone}</a> : <Placeholder>Phone</Placeholder>}</li>
+                <li><a href={company.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-white/70 hover:text-white">GitHub <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a></li>
               </ul>
             </div>
           </div>

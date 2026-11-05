@@ -4,7 +4,7 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { PageHero } from '@/components/Sections/PageHero';
 import { EnquiryForm, serviceOptions } from '@/components/EnquiryForm/EnquiryForm';
 import { Reveal } from '@/components/Motion/Reveal';
-import { company } from '@/data/navigation';
+import { company, telHref } from '@/data/navigation';
 
 /** Maps ?service= / ?topic= query params to a preselected form option. */
 function initialService(params: URLSearchParams) {
@@ -54,8 +54,8 @@ export default function Contact() {
               <div className="rounded-2xl bg-paper-off p-6 ring-1 ring-line">
                 <p className="eyebrow mb-4">Contact information</p>
                 <dl className="space-y-3 text-[14.5px]">
-                  <div className="flex justify-between gap-4"><dt className="text-muted">Email</dt><dd>{company.email ?? <span className="placeholder-tag">To be added</span>}</dd></div>
-                  <div className="flex justify-between gap-4"><dt className="text-muted">Phone</dt><dd>{company.phone ?? <span className="placeholder-tag">To be added</span>}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Email</dt><dd>{company.email ? <a href={`mailto:${company.email}`} className="text-ink hover:underline">{company.email}</a> : <span className="placeholder-tag">To be added</span>}</dd></div>
+                  <div className="flex justify-between gap-4"><dt className="text-muted">Phone</dt><dd>{company.phone ? <a href={telHref(company.phone)} className="text-ink hover:underline">{company.phone}</a> : <span className="placeholder-tag">To be added</span>}</dd></div>
                   <div className="flex justify-between gap-4"><dt className="text-muted">Company</dt><dd>{company.name}</dd></div>
                 </dl>
                 <a href={company.parentUrl} className="mt-5 inline-flex items-center gap-1 text-[13.5px] text-muted hover:text-ink">Part of {company.parent} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>

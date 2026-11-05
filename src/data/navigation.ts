@@ -10,17 +10,19 @@ export const mainNav: NavItem[] = [
 ];
 
 /**
- * Business details NOT provided yet. Every value here is a placeholder and
- * is rendered with a visible "placeholder" marker. Fill these in before launch.
+ * Business details. `parentUrl` is still a placeholder — fill in before launch.
  */
 export const company = {
   name: 'Crista Software',
   parent: 'Crista Enterprises',
   parentUrl: '#', // TODO: Crista Enterprises URL
   tagline: 'Ideas Into Impact.',
-  email: null as string | null, // e.g. 'hello@cristasoftware.com'
-  phone: null as string | null,
-  social: [] as { label: string; href: string }[], // e.g. { label: 'LinkedIn', href: '…' }
+  email: 'contact@getcrista.com' as string | null,
+  phone: '+91 7857994690' as string | null,
+  github: 'https://github.com/CodeBySushant',
+  social: [
+    { label: 'Instagram', href: 'https://instagram.com/cristaenterprises' },
+  ] as { label: string; href: string }[],
 };
 
 export const technologyGroups = [
@@ -59,3 +61,6 @@ export const principles = [
   { title: 'Transparent process', body: 'Clear plans, visible progress and honest trade-offs.' },
   { title: 'Long-term product thinking', body: 'Software that stays maintainable long after launch.' },
 ];
+
+/** `tel:` link value — strips spaces and dashes from the display number. */
+export const telHref = (phone: string) => `tel:${phone.replace(/[^\d+]/g, '')}`;
