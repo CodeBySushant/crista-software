@@ -1,6 +1,8 @@
+import { useId, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { Logo } from '@/components/Logo/Logo';
+import { WORDMARK_PATH, WORDMARK_VIEWBOX } from '@/components/Logo/wordmarkPath';
 import { company, telHref } from '@/data/navigation';
 
 const cols = [
@@ -106,29 +108,64 @@ export function Footer() {
 }
 
 /**
- * Giant dark "Crista" wordmark that sinks below a thin horizon line,
- * with a soft glow spilling under the line.
+ * Giant dark "Crista" wordmark that sinks below a thin horizon line.
+ * A spotlight follows the cursor and lights up the letter edges near it.
  */
 function BrandHorizon() {
-  const mask = {
-    WebkitMaskImage: 'url(/brand/crista-logo-white.svg)',
-    maskImage: 'url(/brand/crista-logo-white.svg)',
-    WebkitMaskSize: '100% auto',
-    maskSize: '100% auto',
-    WebkitMaskRepeat: 'no-repeat',
-    maskRepeat: 'no-repeat',
-    WebkitMaskPosition: 'top center',
-    maskPosition: 'top center',
-  } as const;
+  const stage = useRef<HTMLDivElement>(null);
+  const glow = useRef<HTMLDivElement>(null);
+  const uid = useId().replace(/:/g, '');
+
+  const onMove = (e: React.PointerEvent) => {
+    if (e.pointerType !== 'mouse' || !stage.current || !glow.current) return;
+    const r = stage.current.getBoundingClientRect();
+    glow.current.style.setProperty('--x', `${e.clientX - r.left}px`);
+    glow.current.style.setProperty('--y', `${e.clientY - r.top}px`);
+    glow.current.style.opacity = '1';
+  };
+  const onLeave = () => {
+    if (glow.current) glow.current.style.opacity = '0';
+  };
+
+  const spot = 'radial-gradient(circle 220px at var(--x, 50%) var(--y, 50%), #000 0%, rgba(0,0,0,0.55) 45%, transparent 100%)';
+
   return (
-    <div className="relative bg-black" aria-hidden>
+    <div className="relative bg-black" aria-hidden onPointerMove={onMove} onPointerLeave={onLeave}>
       <div className="container">
         {/* Shows the top ~72% of the wordmark; the rest is cut by the line */}
-        <div className="relative mx-auto aspect-[1489/290] w-full max-w-[1240px] overflow-hidden pt-0">
+        <div ref={stage} className="relative mx-auto aspect-[1489/290] w-full max-w-[1240px] overflow-hidden">
+          {/* Base: flat dark letters */}
+          <svg viewBox={WORDMARK_VIEWBOX} className="absolute inset-x-0 top-[12%] w-full">
+            <defs>
+              <linearGradient id={`wm-fill-${uid}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#151515" />
+                <stop offset="1" stopColor="#0c0c0c" />
+              </linearGradient>
+            </defs>
+            <path d={WORDMARK_PATH} fill={`url(#wm-fill-${uid})`} fillRule="evenodd" />
+          </svg>
+
+          {/* Spotlight: lit edges + faint inner light, revealed around the cursor */}
           <div
-            className="absolute inset-x-0 top-[12%] aspect-[1489/406] bg-gradient-to-b from-[#141414] to-[#0c0c0c]"
-            style={mask}
-          />
+            ref={glow}
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500"
+            style={{ WebkitMaskImage: spot, maskImage: spot }}
+          >
+            <svg
+              viewBox={WORDMARK_VIEWBOX}
+              className="absolute inset-x-0 top-[12%] w-full overflow-visible"
+              style={{ filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.45)) drop-shadow(0 0 18px rgba(255,255,255,0.18))' }}
+            >
+              <path
+                d={WORDMARK_PATH}
+                fill="rgba(255,255,255,0.035)"
+                fillRule="evenodd"
+                stroke="rgba(255,255,255,0.9)"
+                strokeWidth={1.2}
+                vectorEffect="non-scaling-stroke"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       {/* Horizon line */}
