@@ -18,7 +18,6 @@ export default function Products() {
   return (
     <>
       <PageHero
-        eyebrow="Crista Products"
         title="Software Products Built to Make Work Better."
         description="Explore digital products developed by Crista to solve practical problems and simplify everyday workflows."
       />
@@ -61,7 +60,6 @@ export default function Products() {
       <section className="border-t border-line bg-paper-off py-20 lg:py-28">
         <div className="container grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
-            <p className="eyebrow">How we build products</p>
             <h2 className="mt-4 h-sub">Same team. Same standards. Our own roadmap.</h2>
           </Reveal>
           <div className="grid gap-8 sm:grid-cols-3 lg:col-span-7">

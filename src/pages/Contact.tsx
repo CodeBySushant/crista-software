@@ -26,7 +26,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero eyebrow="Contact · Start a project" title="Let’s Build Something Meaningful." description="Tell us about the problem you want to solve. The more context you share, the more useful our first reply will be." />
+      <PageHero title="Let’s Build Something Meaningful." description="Tell us about the problem you want to solve. The more context you share, the more useful our first reply will be." />
 
       <section className="container pb-24 lg:pb-32">
         <div className="grid gap-14 lg:grid-cols-12">

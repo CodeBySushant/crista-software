@@ -53,8 +53,7 @@ function WebLayers() {
         {layers.map(([t, s, d], i) => (
           <Reveal key={t} delay={i * 0.06}>
             <div className="grid items-center gap-3 rounded-2xl bg-surface p-5 ring-1 ring-line sm:grid-cols-12 sm:p-6" style={{ marginLeft: `${i * 2}%`, marginRight: `${(3 - i) * 2}%` }}>
-              <span className="font-mono text-[11px] text-muted sm:col-span-1">L{i + 1}</span>
-              <span className="font-display text-[20px] font-medium tracking-tight sm:col-span-3">{t}</span>
+              <span className="font-display text-[20px] font-medium tracking-tight sm:col-span-4">{t}</span>
               <span className="font-mono text-[12.5px] text-ink/80 sm:col-span-4">{s}</span>
               <span className="text-[14px] text-muted sm:col-span-4">{d}</span>
             </div>

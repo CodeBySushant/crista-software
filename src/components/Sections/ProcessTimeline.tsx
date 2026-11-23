@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 
 /** Dark process band. Horizontal rail on desktop with a gradient that
  *  draws across as it scrolls into view; vertical rail on mobile. */
-export function ProcessTimeline({ index = '04' }: { index?: string }) {
+export function ProcessTimeline() {
   const reduce = useReducedMotion();
   return (
     <section className="relative overflow-hidden bg-inverse py-24 text-white lg:py-32" aria-labelledby="process-h">
@@ -12,8 +12,6 @@ export function ProcessTimeline({ index = '04' }: { index?: string }) {
       <div className="container relative">
         <SectionHeading
           dark
-          index={index}
-          eyebrow="How we work"
           title={<span id="process-h">From First Conversation to Final Deployment.</span>}
           intro="A clear, staged process — so you always know what is happening, what comes next and what it depends on."
           align="split"
@@ -46,8 +44,7 @@ export function ProcessTimeline({ index = '04' }: { index?: string }) {
               <span className="absolute left-0 top-0 grid h-[15px] w-[15px] place-items-center rounded-full bg-inverse ring-1 ring-white/30 lg:static" aria-hidden>
                 <span className={i === processSteps.length - 1 ? 'h-[7px] w-[7px] rounded-full bg-brand-gradient' : 'h-[5px] w-[5px] rounded-full bg-white/80'} />
               </span>
-              <p className="font-mono text-[12px] text-white/40 lg:mt-8">{s.n}</p>
-              <h3 className="mt-2 font-display text-[24px] font-medium tracking-tight lg:text-[26px]">{s.title}</h3>
+              <h3 className="mt-6 lg:mt-8 font-display text-[24px] font-medium tracking-tight lg:text-[26px]">{s.title}</h3>
               <p className="mt-3 max-w-xs text-[14.5px] leading-relaxed text-white/55">{s.body}</p>
             </motion.li>
           ))}

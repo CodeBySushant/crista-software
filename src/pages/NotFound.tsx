@@ -6,8 +6,7 @@ export default function NotFound() {
   return (
     <section className="container grid min-h-[70vh] place-items-center py-24 text-center">
       <div>
-        <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-muted">Error 404</p>
-        <h1 className="mt-6 font-display text-[clamp(5rem,18vw,12rem)] font-medium leading-none tracking-tightest">
+        <h1 className="font-display text-[clamp(5rem,18vw,12rem)] font-medium leading-none tracking-tightest">
           4<span className="text-gradient">0</span>4
         </h1>
         <p className="mx-auto mt-6 max-w-md text-[17px] text-muted">This page doesn’t exist — or it moved. Let’s get you back to something useful.</p>

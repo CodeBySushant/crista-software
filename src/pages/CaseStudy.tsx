@@ -55,14 +55,14 @@ export default function CaseStudy() {
       </div>
 
       <div className="container py-20 lg:py-28">
-        <Block n="01" title="Project overview"><p>{p.overview}</p></Block>
-        <Block n="02" title="Problem statement"><p className="font-display text-[24px] leading-snug tracking-tight text-ink sm:text-[28px]">{p.problem}</p></Block>
-        <Block n="03" title="Objectives">
+        <Block title="Project overview"><p>{p.overview}</p></Block>
+        <Block title="Problem statement"><p className="font-display text-[24px] leading-snug tracking-tight text-ink sm:text-[28px]">{p.problem}</p></Block>
+        <Block title="Objectives">
           <ol className="space-y-3">{p.objectives.map((o, i) => <li key={o} className="flex gap-4"><span className="font-mono text-[12px] text-muted">{i + 1}.</span>{o}</li>)}</ol>
         </Block>
-        <Block n="04" title="Solution"><p>{p.solution}</p></Block>
-        <Block n="05" title="Design approach"><p>{p.designApproach}</p></Block>
-        <Block n="06" title="Technology architecture">
+        <Block title="Solution"><p>{p.solution}</p></Block>
+        <Block title="Design approach"><p>{p.designApproach}</p></Block>
+        <Block title="Technology architecture">
           <div className="flex flex-col items-stretch sm:flex-row">
             {p.architecture.map((a, i) => (
               <div key={a.layer} className="flex flex-1 flex-col sm:flex-row sm:items-center">
@@ -75,13 +75,13 @@ export default function CaseStudy() {
             ))}
           </div>
         </Block>
-        <Block n="07" title="Key features">
+        <Block title="Key features">
           <div className="grid gap-px overflow-hidden rounded-xl bg-line ring-1 ring-line sm:grid-cols-3">
             {p.features.map((f) => <div key={f.title} className="bg-surface p-5"><p className="font-medium text-ink">{f.title}</p><p className="mt-1 text-[14px] text-muted">{f.description}</p></div>)}
           </div>
         </Block>
         {p.outcomes.length > 0 && (
-          <Block n="08" title="Outcomes"><ul className="space-y-2">{p.outcomes.map((o) => <li key={o}>{o}</li>)}</ul></Block>
+          <Block title="Outcomes"><ul className="space-y-2">{p.outcomes.map((o) => <li key={o}>{o}</li>)}</ul></Block>
         )}
       </div>
 
@@ -100,11 +100,10 @@ function Meta({ label, value }: { label: string; value: string }) {
   return <div><dt className="eyebrow">{label}</dt><dd className="mt-1.5 text-[14.5px] text-ink">{value}</dd></div>;
 }
 
-function Block({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
+function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <Reveal className="grid gap-4 border-t border-line py-10 lg:grid-cols-12 lg:gap-10">
-      <div className="flex items-baseline gap-3 lg:col-span-4">
-        <span className="font-mono text-[11px] text-muted">{n}</span>
+      <div className="lg:col-span-4">
         <h2 className="font-display text-[22px] font-medium tracking-tight">{title}</h2>
       </div>
       <div className="max-w-2xl text-[16.5px] leading-relaxed text-ink/85 lg:col-span-8">{children}</div>

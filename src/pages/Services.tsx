@@ -17,7 +17,6 @@ export default function Services() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
         title="Software Solutions Built Around Your Business."
         description="From the first idea to a production-ready platform, we help businesses design, develop and scale digital solutions."
       >
@@ -33,7 +32,7 @@ export default function Services() {
           {services.map((s) => (
             <li key={s.slug} className="shrink-0">
               <a href={`#${s.slug}`} onClick={anchorClick(`#${s.slug}`)} className="flex items-center gap-2 rounded-full px-3.5 py-2 text-[13.5px] text-muted transition-colors hover:bg-paper-off hover:text-ink">
-                <span className="font-mono text-[10.5px]">{s.index}</span>{s.shortTitle}
+{s.shortTitle}
               </a>
             </li>
           ))}
@@ -49,8 +48,8 @@ export default function Services() {
               <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
                 <div className={cn('lg:col-span-6', flip && 'lg:order-2')}>
                   <Reveal>
-                    <p className="eyebrow flex items-center gap-3"><span className="text-ink">{s.index}</span><span className="h-px w-6 bg-line" />{s.title}</p>
-                    <h2 id={`${s.slug}-h`} className="mt-5 h-sub text-balance sm:text-[40px] sm:leading-[1.1]">{s.headline}</h2>
+                    <h2 id={`${s.slug}-h`} className="h-sub text-balance sm:text-[40px] sm:leading-[1.1]">{s.title}</h2>
+                    <p className="mt-4 text-[19px] leading-snug text-ink/90 sm:text-[21px]">{s.headline}</p>
                     <p className="lede mt-5">{s.summary}</p>
                   </Reveal>
 
@@ -113,7 +112,7 @@ export default function Services() {
         })}
       </div>
 
-      <ProcessTimeline index="—" />
+      <ProcessTimeline />
       <CTASection title="Not sure which service you need?" body="Describe the problem. We’ll recommend the approach — and tell you honestly if you don’t need custom software at all." primary={['Discuss Your Requirements', '/contact?topic=requirements']} secondary={['View Our Work', '/work']} />
     </>
   );

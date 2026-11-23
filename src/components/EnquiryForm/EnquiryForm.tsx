@@ -105,8 +105,8 @@ export function EnquiryForm({ initialService = '', onSubmit }: { initialService?
                 Your enquiry about <span className="text-white">{values.service}</span> has been received. Someone from the team will review it and reply to <span className="text-white">{values.email}</span>.
               </p>
               <ol className="mt-10 grid gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
-                {['We review your requirements', 'We schedule a discovery call', 'You receive a proposed approach'].map((s, i) => (
-                  <li key={s} className="text-[14px] text-white/70"><span className="mb-2 block font-mono text-[11px] text-white/40">0{i + 1}</span>{s}</li>
+                {['We review your requirements', 'We schedule a discovery call', 'You receive a proposed approach'].map((s) => (
+                  <li key={s} className="text-[14px] text-white/70">{s}</li>
                 ))}
               </ol>
               <p className="mt-8 font-mono text-[11px] text-white/35">Demo mode — this form is not connected to a backend yet.</p>

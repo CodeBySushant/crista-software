@@ -65,8 +65,9 @@
   .h-sub {
     @apply font-display font-medium tracking-tighter2 text-2xl leading-tight sm:text-3xl;
   }
+  /* Small group label (footer columns, menu groups, meta). Normal case, no mono. */
   .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-muted;
+    @apply text-[13.5px] font-medium text-muted;
   }
   .lede {
     @apply text-[1.0625rem] leading-relaxed text-muted sm:text-lg;

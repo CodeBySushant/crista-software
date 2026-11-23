@@ -28,7 +28,6 @@ export default function About() {
   return (
     <>
       <PageHero
-        eyebrow="About Crista Software"
         title="Building Technology with Purpose."
         description="Crista Software is the software and technology division of Crista Enterprises. We build digital solutions for businesses — and develop our own products with the same care."
       />
@@ -54,7 +53,6 @@ export default function About() {
         <div className="grid-paper-dark absolute inset-0 opacity-60" aria-hidden />
         <div className="container relative grid gap-12 lg:grid-cols-12 lg:items-center">
           <Reveal className="lg:col-span-6">
-            <p className="eyebrow text-white/45">Our philosophy</p>
             <h2 className="mt-5 h-section text-white">Ideas are cheap. <span className="text-gradient">Impact</span> is engineered.</h2>
             <p className="mt-6 max-w-lg text-[17px] leading-relaxed text-white/60">Our tagline is a working principle. Every feature has to justify itself in time saved, revenue enabled or risk reduced — otherwise it doesn’t ship.</p>
           </Reveal>
@@ -75,15 +73,13 @@ export default function About() {
       <section className="container py-24 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
-            <p className="eyebrow">Engineering</p>
             <h2 className="mt-4 h-sub">How we approach engineering.</h2>
           </Reveal>
           <ol className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:col-span-8">
             {engineering.map(([t, d], i) => (
               <Reveal key={t} delay={(i % 2) * 0.06}>
                 <li className="list-none border-t border-ink pt-5">
-                  <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
-                  <h3 className="mt-3 font-display text-[22px] font-medium tracking-tight">{t}</h3>
+                  <h3 className="font-display text-[22px] font-medium tracking-tight">{t}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-muted">{d}</p>
                 </li>
               </Reveal>
@@ -95,18 +91,16 @@ export default function About() {
       {/* Two fronts */}
       <section className="border-y border-line bg-paper-off py-24 lg:py-32">
         <div className="container">
-          <Reveal className="max-w-3xl"><p className="eyebrow">Two fronts</p><h2 className="mt-4 h-section">Software services and product development.</h2></Reveal>
+          <Reveal className="max-w-3xl"><h2 className="mt-4 h-section">Software services and product development.</h2></Reveal>
           <div className="mt-14 grid gap-5 lg:grid-cols-2">
             <Reveal className="rounded-[22px] bg-surface p-6 ring-1 ring-line sm:p-10">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">For clients</p>
-              <h3 className="mt-4 font-display text-[26px] font-medium tracking-tight">We build what your business needs.</h3>
+              <h3 className="font-display text-[26px] font-medium tracking-tight">We build what your business needs.</h3>
               <p className="mt-3 text-[15px] text-muted">Web, mobile, custom systems, AI and infrastructure — scoped and engineered around your requirements.</p>
               <div className="mt-8"><Mock kind="web" /></div>
               <div className="mt-10"><Button to="/services" arrow>Our services</Button></div>
             </Reveal>
             <Reveal delay={0.08} className="rounded-[22px] bg-inverse p-6 text-white sm:p-10">
-              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">For the market</p>
-              <h3 className="mt-4 font-display text-[26px] font-medium tracking-tight">We build products of our own.</h3>
+              <h3 className="font-display text-[26px] font-medium tracking-tight">We build products of our own.</h3>
               <p className="mt-3 text-[15px] text-white/55">Independent products shaped by problems we see across industries — and honest about their stage.</p>
               <div className="mt-8"><Mock kind="mobility" /></div>
               <div className="mt-10"><Button to="/products" variant="light" arrow>Our products</Button></div>
@@ -117,19 +111,18 @@ export default function About() {
 
       {/* Values */}
       <section className="container py-24 lg:py-32">
-        <Reveal className="mb-12"><p className="eyebrow">Values</p><h2 className="mt-4 h-section">What we hold ourselves to.</h2></Reveal>
+        <Reveal className="mb-12"><h2 className="mt-4 h-section">What we hold ourselves to.</h2></Reveal>
         <div className="grid gap-px overflow-hidden rounded-[22px] bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
           {values.map(([t, d], i) => (
             <Reveal key={t} delay={i * 0.05} className="bg-surface p-7">
-              <p className="font-display text-[44px] font-medium leading-none tracking-tightest text-ink/10">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="mt-8 font-display text-[22px] font-medium">{t}</h3>
+              <h3 className="font-display text-[22px] font-medium">{t}</h3>
               <p className="mt-2 text-[14.5px] text-muted">{d}</p>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <div className="container"><TechStack index="—" compact /></div>
+      <div className="container"><TechStack compact /></div>
 
       {/* Parent company */}
       <section className="container pb-8">

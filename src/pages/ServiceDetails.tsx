@@ -29,12 +29,8 @@ export default function ServiceDetails() {
     <>
       <PageHero
         dark={dark}
-        eyebrow={
-          <span className="flex items-center gap-3">
-            <Link to="/services" className={cn('inline-flex items-center gap-1 hover:text-ink', dark && 'hover:text-white')}><ArrowLeft className="h-3 w-3" aria-hidden />Services</Link>
-            <span className={cn('h-px w-6', dark ? 'bg-white/20' : 'bg-line')} />
-            <span className={dark ? 'text-white' : 'text-ink'}>{s.index}</span> {s.title}
-          </span>
+        back={
+          <Link to="/services" className={cn('inline-flex items-center gap-1.5 hover:text-ink', dark && 'hover:text-white')}><ArrowLeft className="h-3.5 w-3.5" aria-hidden />All services</Link>
         }
         title={s.headline}
         description={s.summary}
@@ -58,15 +54,13 @@ export default function ServiceDetails() {
       <section className="container py-20 lg:py-28" aria-labelledby="problems-h">
         <div className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-4">
-            <p className="eyebrow">The problem</p>
             <h2 id="problems-h" className="mt-4 h-sub">Signs you need {s.title.toLowerCase()}.</h2>
           </Reveal>
           <ol className="grid gap-px overflow-hidden rounded-2xl bg-line ring-1 ring-line sm:grid-cols-2 lg:col-span-8">
             {s.problems.map((p, i) => (
               <Reveal key={p} delay={i * 0.05} className="bg-surface p-6 sm:p-8">
                 <li className="list-none">
-                  <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
-                  <p className="mt-6 text-[17px] leading-snug text-ink">{p}</p>
+                  <p className="text-[17px] leading-snug text-ink">{p}</p>
                 </li>
               </Reveal>
             ))}
@@ -78,12 +72,10 @@ export default function ServiceDetails() {
       <section id="solutions" className="container scroll-mt-24 pb-20 lg:pb-28" aria-labelledby="solutions-h">
         <Reveal className="mb-10 flex items-end justify-between gap-6 border-b border-ink pb-6">
           <h2 id="solutions-h" className="h-sub">What we deliver</h2>
-          <p className="hidden font-mono text-[12px] text-muted sm:block">{s.solutions.length} solution areas</p>
         </Reveal>
         <div className="grid gap-x-12 gap-y-10 md:grid-cols-2">
           {s.solutions.map((x, i) => (
-            <Reveal key={x.title} delay={(i % 2) * 0.06} className="grid grid-cols-[2.5rem_1fr]">
-              <span className="font-mono text-[12px] text-muted">{String(i + 1).padStart(2, '0')}</span>
+            <Reveal key={x.title} delay={(i % 2) * 0.06}>
               <div>
                 <h3 className="font-display text-[24px] font-medium tracking-tight">{x.title}</h3>
                 <p className="mt-2 text-[15.5px] leading-relaxed text-muted">{x.description}</p>
@@ -102,14 +94,13 @@ export default function ServiceDetails() {
       <section className="container py-20 lg:py-28" aria-labelledby="approach-h">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <Reveal><p className="eyebrow">Development approach</p><h2 id="approach-h" className="mt-4 h-sub">How we run {s.shortTitle.toLowerCase()} projects.</h2></Reveal>
+            <Reveal><h2 id="approach-h" className="mt-4 h-sub">How we run {s.shortTitle.toLowerCase()} projects.</h2></Reveal>
             <ol className="mt-10 border-t border-line">
               {s.approach.map((a, i) => (
                 <Reveal key={a.title} delay={i * 0.05}>
-                  <li className="grid grid-cols-[3rem_1fr] gap-4 border-b border-line py-6 sm:grid-cols-[3rem_14rem_1fr]">
-                    <span className="font-mono text-[12px] text-muted">{String(i + 1).padStart(2, '0')}</span>
+                  <li className="grid gap-2 border-b border-line py-6 sm:grid-cols-[14rem_1fr] sm:gap-4">
                     <span className="font-display text-[19px] font-medium tracking-tight">{a.title}</span>
-                    <span className="col-start-2 text-[15px] text-muted sm:col-start-3">{a.description}</span>
+                    <span className="text-[15px] text-muted">{a.description}</span>
                   </li>
                 </Reveal>
               ))}

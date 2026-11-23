@@ -50,7 +50,7 @@ export default function ProductDetails() {
       {/* Overview */}
       <section id="overview" className="container scroll-mt-24 py-20 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5"><p className="eyebrow">Overview</p><h2 className="mt-4 h-sub">{p.description}</h2></Reveal>
+          <Reveal className="lg:col-span-5"><h2 className="mt-4 h-sub">{p.description}</h2></Reveal>
           <Reveal delay={0.08} className="lg:col-span-6 lg:col-start-7">
             <dl className="divide-y divide-line border-y border-line">
               <Row label="Main use case" value={p.useCase} />
@@ -84,7 +84,7 @@ export default function ProductDetails() {
       {/* Use cases */}
       <section className="container py-20 lg:py-28" aria-labelledby="uc-h">
         <div className="grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4"><p className="eyebrow">Use cases</p><h2 id="uc-h" className="mt-4 h-sub">Who it’s for.</h2></Reveal>
+          <Reveal className="lg:col-span-4"><h2 id="uc-h" className="mt-4 h-sub">Who it’s for.</h2></Reveal>
           <ul className="border-t border-line lg:col-span-8">
             {p.useCases.map((u, i) => (
               <Reveal key={u.title + i} delay={i * 0.05}>

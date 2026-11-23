@@ -40,7 +40,6 @@ export function ServiceExplorer() {
               }}
               className={cn('group relative flex w-full items-baseline gap-5 border-t border-line py-5 text-left transition-colors last:border-b', i === active ? 'text-ink' : 'text-ink/35 hover:text-ink/70')}
             >
-              <span className="font-mono text-[12px] tabular-nums">{sv.index}</span>
               <span className="font-display text-[28px] font-medium leading-none tracking-tighter2 xl:text-[32px]">{sv.title}</span>
               {i === active && <motion.span layoutId="svc-bar" className="absolute -left-px top-[-1px] h-px w-full bg-brand-gradient" transition={{ duration: reduce ? 0 : 0.35 }} />}
             </button>
@@ -84,7 +83,6 @@ export function ServiceExplorer() {
           return (
             <li key={sv.slug} className="border-t border-line">
               <button type="button" aria-expanded={open} onClick={() => setActive(open ? -1 : i)} className="flex w-full items-center gap-4 py-5 text-left">
-                <span className="font-mono text-[11px] text-muted">{sv.index}</span>
                 <span className="flex-1 font-display text-[22px] font-medium tracking-tight sm:text-[26px]">{sv.title}</span>
                 <Plus className={cn('h-5 w-5 text-muted transition-transform duration-300', open && 'rotate-45')} aria-hidden />
               </button>

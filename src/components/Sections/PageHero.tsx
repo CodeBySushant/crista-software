@@ -4,7 +4,7 @@ import { RevealText } from '@/components/Motion/Reveal';
 import { cn } from '@/utils/cn';
 
 type Props = {
-  eyebrow: ReactNode;
+  back?: ReactNode; // optional small back link above the title
   title: string;
   description?: ReactNode;
   children?: ReactNode; // actions / meta under the description
@@ -13,7 +13,7 @@ type Props = {
 };
 
 /** Shared inner-page hero: grid-paper ground, editorial headline. */
-export function PageHero({ eyebrow, title, description, children, aside, dark }: Props) {
+export function PageHero({ back, title, description, children, aside, dark }: Props) {
   const reduce = useReducedMotion();
   return (
     <section className={cn('relative -mt-16 overflow-hidden pt-16', dark && 'bg-inverse text-white')}>
@@ -21,9 +21,11 @@ export function PageHero({ eyebrow, title, description, children, aside, dark }:
       <div className="container relative pb-16 pt-14 sm:pt-20 lg:pb-24 lg:pt-24">
         <div className={cn('grid gap-12', !!aside && 'lg:grid-cols-12 lg:items-end')}>
           <div className={aside ? 'lg:col-span-7' : ''}>
-            <motion.div initial={reduce ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className={cn('eyebrow mb-6', dark && 'text-white/50')}>
-              {eyebrow}
-            </motion.div>
+            {back && (
+              <motion.div initial={reduce ? false : { opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="mb-6 text-[14px] text-muted">
+                {back}
+              </motion.div>
+            )}
             <RevealText text={title} className={cn('h-display max-w-[17ch] text-balance', dark ? 'text-white' : 'text-ink')} />
             {description && (
               <motion.p

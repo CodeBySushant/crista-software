@@ -16,7 +16,7 @@ export default function Portfolio() {
 
   return (
     <>
-      <PageHero eyebrow="Work" title="Software We’ve Built, and How We Built It." description="Business systems, mobile apps and AI-assisted tools — each one documented with the problem, the approach and the architecture behind it." />
+      <PageHero title="Software We’ve Built, and How We Built It." description="Business systems, mobile apps and AI-assisted tools — each one documented with the problem, the approach and the architecture behind it." />
 
       <section className="container pb-24" aria-labelledby="work-list-h">
         <h2 id="work-list-h" className="sr-only">Projects</h2>
@@ -55,7 +55,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                 className={cn(i % 4 === 0 && list.length > 1 && 'md:col-span-2', i % 4 === 2 && 'md:mt-24')}
               >
-                <ProjectCard project={p} size={i % 4 === 0 && list.length > 1 ? 'lg' : 'md'} index={projects.indexOf(p)} />
+                <ProjectCard project={p} size={i % 4 === 0 && list.length > 1 ? 'lg' : 'md'} />
               </motion.div>
             ))}
           </AnimatePresence>

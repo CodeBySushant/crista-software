@@ -29,8 +29,6 @@ export default function Home() {
       <WhatWeDo />
       <section className="container py-24 lg:py-32" aria-labelledby="svc-h">
         <SectionHeading
-          index="03"
-          eyebrow="Services"
           title={<span id="svc-h">Engineering Solutions for Real Business Challenges.</span>}
           intro="Six disciplines, one team. Each engagement draws on the ones your problem actually needs."
           align="split"
@@ -133,7 +131,6 @@ function Intro() {
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
-            <p className="eyebrow mb-5 flex items-center gap-3"><span className="text-ink">01</span><span className="h-px w-6 bg-line" />Introduction</p>
             <h2 id="intro-h" className="h-section text-balance">Technology Should Move Business Forward.</h2>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-5 lg:pt-14">
@@ -153,8 +150,7 @@ function Intro() {
           <Reveal delay={0.1} className="lg:col-span-4">
             <div className="relative flex h-full flex-col overflow-hidden rounded-[22px] bg-inverse p-6 text-white sm:p-8">
               <div className="grid-paper-dark fade-mask-b absolute inset-0" aria-hidden />
-              <p className="eyebrow relative text-white/45">Systems + intelligence</p>
-              <p className="relative mt-5 font-display text-[24px] font-medium leading-snug tracking-tight">
+              <p className="relative font-display text-[24px] font-medium leading-snug tracking-tight">
                 Operational systems and the intelligence layered on top — built as one coherent product.
               </p>
               <ol className="relative mt-8 space-y-0 lg:mt-auto">
@@ -173,8 +169,7 @@ function Intro() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-[18px] bg-line ring-1 ring-line sm:grid-cols-3">
           {pillars.map(([t, d], i) => (
             <Reveal key={t} delay={i * 0.06} className="bg-paper-off p-6 sm:p-8">
-              <p className="font-mono text-[11px] text-muted">0{i + 1}</p>
-              <h3 className="mt-6 font-display text-[20px] font-medium tracking-tight">{t}</h3>
+              <h3 className="font-display text-[20px] font-medium tracking-tight">{t}</h3>
               <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{d}</p>
             </Reveal>
           ))}
@@ -188,21 +183,17 @@ function Intro() {
 function WhatWeDo() {
   return (
     <section className="container py-24 lg:py-32" aria-labelledby="wwd-h">
-      <SectionHeading index="02" eyebrow="What we do" title={<span id="wwd-h">From Concept to Production.</span>} intro="One engineering company, working on two fronts: solutions for our clients, and products of our own." align="split" className="mb-14" />
+      <SectionHeading title={<span id="wwd-h">From Concept to Production.</span>} intro="One engineering company, working on two fronts: solutions for our clients, and products of our own." align="split" className="mb-14" />
 
       <div className="relative grid gap-5 lg:grid-cols-2">
         {/* A. Services */}
         <Reveal className="flex flex-col rounded-[24px] bg-surface p-7 ring-1 ring-line sm:p-10">
-          <div className="flex items-center justify-between">
-            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">A — Software Services</span>
-            <span className="h-2 w-2 rounded-full bg-inverse" aria-hidden />
-          </div>
-          <h3 className="mt-10 font-display text-[30px] font-medium leading-tight tracking-tighter2 sm:text-[36px]">Technology solutions engineered around your business requirements.</h3>
+          <h3 className="font-display text-[30px] font-medium leading-tight tracking-tighter2 sm:text-[36px]">Technology solutions engineered around your business requirements.</h3>
           <ul className="mt-10 divide-y divide-line border-y border-line">
             {services.map((s) => (
               <li key={s.slug}>
                 <Link to={`/services/${s.slug}`} className="group flex items-center justify-between py-3.5 text-[15px] text-ink">
-                  <span className="flex items-baseline gap-4"><span className="font-mono text-[11px] text-muted">{s.index}</span>{s.title}</span>
+                  <span>{s.title}</span>
                   <ArrowRight className="h-4 w-4 -translate-x-1 text-muted opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" aria-hidden />
                 </Link>
               </li>
@@ -214,11 +205,7 @@ function WhatWeDo() {
         {/* B. Products */}
         <Reveal delay={0.08} className="relative flex flex-col overflow-hidden rounded-[24px] bg-inverse p-7 text-white sm:p-10">
           <div className="grid-paper-dark fade-mask-b absolute inset-0" aria-hidden />
-          <div className="relative flex items-center justify-between">
-            <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/50">B — Software Products</span>
-            <span className="h-2 w-2 rounded-full bg-brand-gradient" aria-hidden />
-          </div>
-          <h3 className="relative mt-10 font-display text-[30px] font-medium leading-tight tracking-tighter2 sm:text-[36px]">Purpose-built digital products designed to solve real-world problems.</h3>
+          <h3 className="relative font-display text-[30px] font-medium leading-tight tracking-tighter2 sm:text-[36px]">Purpose-built digital products designed to solve real-world problems.</h3>
           <ul className="relative mt-10 space-y-3">
             {products.map((p) => (
               <li key={p.slug}>
@@ -246,8 +233,6 @@ function SelectedWork() {
   return (
     <section className="container py-24 lg:py-32" aria-labelledby="work-h">
       <SectionHeading
-        index="05"
-        eyebrow="Selected work"
         title={<span id="work-h">Built with Purpose. Designed to Perform.</span>}
         align="split"
         intro="A selection of software built by the team — business systems, mobile apps and AI-assisted tools."
@@ -256,10 +241,10 @@ function SelectedWork() {
       />
       <DraftNotice className="mb-14">Portfolio entries are internal projects shown as drafts. Descriptions and stacks need confirmation, and visuals are interface demonstrations — not client screenshots.</DraftNotice>
       <div className="grid gap-x-8 gap-y-16 lg:grid-cols-12">
-        <Reveal className="lg:col-span-12"><ProjectCard project={a} size="lg" index={0} /></Reveal>
-        <Reveal className="lg:col-span-7"><ProjectCard project={b} index={1} /></Reveal>
-        <Reveal delay={0.08} className="lg:col-span-5 lg:mt-32"><ProjectCard project={c} index={2} /></Reveal>
-        <Reveal className="lg:col-span-6 lg:col-start-4"><ProjectCard project={d} index={3} /></Reveal>
+        <Reveal className="lg:col-span-12"><ProjectCard project={a} size="lg" /></Reveal>
+        <Reveal className="lg:col-span-7"><ProjectCard project={b} /></Reveal>
+        <Reveal delay={0.08} className="lg:col-span-5 lg:mt-32"><ProjectCard project={c} /></Reveal>
+        <Reveal className="lg:col-span-6 lg:col-start-4"><ProjectCard project={d} /></Reveal>
       </div>
     </section>
   );
@@ -272,8 +257,6 @@ function OurProducts() {
     <section className="border-y border-line bg-paper-off py-24 lg:py-32" aria-labelledby="prod-h">
       <div className="container">
         <SectionHeading
-          index="06"
-          eyebrow="Our products"
           title={<span id="prod-h">Not Just Building for Others. Building for the Future.</span>}
           intro="Alongside client work, Crista develops software products of its own — tested on real problems before they ever reach a customer."
           align="split"
@@ -307,17 +290,16 @@ function Industries() {
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
-            <SectionHeading index="08" eyebrow="Industries" title={<span id="ind-h">Technology Across Industries.</span>} />
+            <SectionHeading title={<span id="ind-h">Technology Across Industries.</span>} />
             <p className="lede mt-6">Bookings, operations, records and data look different in every sector — the engineering underneath is the same. These are the industries our services are set up to support.</p>
           </div>
         </div>
         <ul className="border-t border-line lg:col-span-8">
           {industries.map((ind, i) => (
             <Reveal key={ind.name} delay={i * 0.03}>
-              <li className="group relative grid grid-cols-[2.25rem_1fr] items-baseline gap-x-4 border-b border-line py-6 sm:grid-cols-[3rem_1fr_1fr] sm:py-7">
-                <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
+              <li className="group relative grid items-baseline gap-x-4 border-b border-line py-6 sm:grid-cols-[1fr_1fr] sm:py-7">
                 <span className="font-display text-[22px] font-medium tracking-tight transition-transform duration-500 group-hover:translate-x-1.5 sm:text-[28px]">{ind.name}</span>
-                <span className="col-start-2 mt-1 text-[14.5px] text-muted sm:col-start-3 sm:mt-0 sm:text-right">{ind.note}</span>
+                <span className="mt-1 text-[14.5px] text-muted sm:mt-0 sm:text-right">{ind.note}</span>
                 <span className="absolute bottom-[-1px] left-0 h-px w-0 bg-brand-gradient transition-all duration-700 group-hover:w-full" aria-hidden />
               </li>
             </Reveal>
@@ -333,14 +315,11 @@ function WhyCrista() {
   return (
     <section className="border-t border-line bg-paper-off py-24 lg:py-32" aria-labelledby="why-h">
       <div className="container">
-        <SectionHeading index="09" eyebrow="Why Crista" title={<span id="why-h">A Technology Partner, Not Just a Development Vendor.</span>} align="split" intro="Vendors deliver tickets. Partners take responsibility for whether the software works for the business." className="mb-14" />
+        <SectionHeading title={<span id="why-h">A Technology Partner, Not Just a Development Vendor.</span>} align="split" intro="Vendors deliver tickets. Partners take responsibility for whether the software works for the business." className="mb-14" />
         <div className="grid gap-px overflow-hidden rounded-[22px] bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-3">
           {principles.map((p, i) => (
             <Reveal key={p.title} delay={(i % 3) * 0.06} className="group relative bg-surface p-7 sm:p-9">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
-                <Glyph i={i} />
-              </div>
+              <Glyph i={i} />
               <h3 className="mt-8 font-display text-[21px] sm:mt-14 font-medium tracking-tight">{p.title}</h3>
               <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{p.body}</p>
             </Reveal>

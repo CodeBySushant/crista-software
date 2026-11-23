@@ -13,7 +13,7 @@ const tints: Record<string, string> = {
 };
 
 /** Editorial project tile: image-led stage, quiet metadata row underneath. */
-export function ProjectCard({ project, size = 'md', index }: { project: Project; size?: 'lg' | 'md'; index?: number }) {
+export function ProjectCard({ project, size = 'md' }: { project: Project; size?: 'lg' | 'md' }) {
   const phone = isPhoneMock(project.mock);
   return (
     <Link to={`/work/${project.slug}`} className="group block" aria-label={`${project.title} — view case study`}>
@@ -44,7 +44,6 @@ export function ProjectCard({ project, size = 'md', index }: { project: Project;
       <div className={cn('mt-5 flex flex-col gap-3', size === 'lg' && 'sm:flex-row sm:items-start sm:justify-between sm:gap-8')}>
         <div className="min-w-0">
           <div className="flex items-baseline gap-3">
-            {index !== undefined && <span className="font-mono text-[11px] text-muted">{String(index + 1).padStart(2, '0')}</span>}
             <h3 className="font-display text-[24px] font-medium tracking-tight text-ink sm:text-[26px]">{project.title}</h3>
           </div>
           <p className="mt-1.5 max-w-md text-[14.5px] leading-relaxed text-muted">{project.summary}</p>
