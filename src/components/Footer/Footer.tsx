@@ -46,8 +46,8 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative overflow-hidden bg-inverse text-white">
-      <div className="h-px w-full bg-brand-gradient opacity-70" aria-hidden />
-      <div className="container pb-10 pt-16 lg:pt-20">
+      <BrandHorizon />
+      <div className="container relative pb-10 pt-16 lg:pt-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Logo dark />
@@ -102,5 +102,42 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/**
+ * Giant dark "Crista" wordmark that sinks below a thin horizon line,
+ * with a soft glow spilling under the line.
+ */
+function BrandHorizon() {
+  const mask = {
+    WebkitMaskImage: 'url(/brand/crista-logo-white.svg)',
+    maskImage: 'url(/brand/crista-logo-white.svg)',
+    WebkitMaskSize: '100% auto',
+    maskSize: '100% auto',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+    WebkitMaskPosition: 'top center',
+    maskPosition: 'top center',
+  } as const;
+  return (
+    <div className="relative bg-black" aria-hidden>
+      <div className="container">
+        {/* Shows the top ~72% of the wordmark; the rest is cut by the line */}
+        <div className="relative mx-auto aspect-[1489/290] w-full max-w-[1240px] overflow-hidden pt-0">
+          <div
+            className="absolute inset-x-0 top-[12%] aspect-[1489/406] bg-gradient-to-b from-[#141414] to-[#0c0c0c]"
+            style={mask}
+          />
+        </div>
+      </div>
+      {/* Horizon line */}
+      <div className="h-px w-full bg-gradient-to-r from-white/[0.06] via-white/[0.16] to-white/[0.06]" />
+      {/* Glow under the line */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-full h-40"
+        style={{ background: 'radial-gradient(50% 100% at 50% 0%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 45%, transparent 75%)' }}
+      />
+    </div>
   );
 }
