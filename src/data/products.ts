@@ -24,7 +24,7 @@ export const products: Product[] = [
     status: 'In research',
     draft: true,
     draftNote: 'Working name. Product is in research — scope below is planned, not released.',
-    accent: { from: '#10B981', to: '#06B6D4' },
+    accent: { from: '#3F3F46', to: '#18181B' },
     featuresLabel: 'Planned scope',
     features: [
       { title: 'Demand mapping', description: 'Visualise trip demand by zone and time of day.' },
@@ -60,7 +60,7 @@ export const products: Product[] = [
     status: 'Demonstration',
     draft: true,
     draftNote: 'Demonstration entry. Not a real product.',
-    accent: { from: '#22C55E', to: '#10B981' },
+    accent: { from: '#3F3F46', to: '#18181B' },
     featuresLabel: 'Example feature slots',
     features: [
       { title: 'Feature slot one', description: 'Short description of an approved feature.' },
@@ -86,7 +86,7 @@ export const products: Product[] = [
     status: 'Demonstration',
     draft: true,
     draftNote: 'Demonstration entry. Not a real product.',
-    accent: { from: '#06B6D4', to: '#22C55E' },
+    accent: { from: '#3F3F46', to: '#18181B' },
     featuresLabel: 'Example feature slots',
     features: [
       { title: 'Feature slot one', description: 'Short description of an approved feature.' },

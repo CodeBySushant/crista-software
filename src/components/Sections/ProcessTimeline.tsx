@@ -7,7 +7,7 @@ import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 export function ProcessTimeline({ index = '04' }: { index?: string }) {
   const reduce = useReducedMotion();
   return (
-    <section className="relative overflow-hidden bg-ink py-24 text-white lg:py-32" aria-labelledby="process-h">
+    <section className="relative overflow-hidden bg-inverse py-24 text-white lg:py-32" aria-labelledby="process-h">
       <div className="grid-paper-dark absolute inset-0 opacity-60 [mask-image:linear-gradient(to_bottom,transparent,black_30%,black_70%,transparent)]" aria-hidden />
       <div className="container relative">
         <SectionHeading
@@ -43,7 +43,7 @@ export function ProcessTimeline({ index = '04' }: { index?: string }) {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6, delay: reduce ? 0 : 0.15 + i * 0.12 }}
             >
-              <span className="absolute left-0 top-0 grid h-[15px] w-[15px] place-items-center rounded-full bg-ink ring-1 ring-white/30 lg:static" aria-hidden>
+              <span className="absolute left-0 top-0 grid h-[15px] w-[15px] place-items-center rounded-full bg-inverse ring-1 ring-white/30 lg:static" aria-hidden>
                 <span className={i === processSteps.length - 1 ? 'h-[7px] w-[7px] rounded-full bg-brand-gradient' : 'h-[5px] w-[5px] rounded-full bg-white/80'} />
               </span>
               <p className="font-mono text-[12px] text-white/40 lg:mt-8">{s.n}</p>

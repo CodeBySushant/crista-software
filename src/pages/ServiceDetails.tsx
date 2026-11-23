@@ -47,7 +47,7 @@ export default function ServiceDetails() {
       </PageHero>
 
       {!phone && (
-        <div className={cn('relative', dark ? 'bg-ink' : '')}>
+        <div className={cn('relative', dark ? 'bg-inverse' : '')}>
           <div className="container -mt-4 pb-6">
             <Reveal className="mx-auto max-w-5xl"><Mock kind={s.mock} /></Reveal>
           </div>
@@ -63,7 +63,7 @@ export default function ServiceDetails() {
           </Reveal>
           <ol className="grid gap-px overflow-hidden rounded-2xl bg-line ring-1 ring-line sm:grid-cols-2 lg:col-span-8">
             {s.problems.map((p, i) => (
-              <Reveal key={p} delay={i * 0.05} className="bg-white p-6 sm:p-8">
+              <Reveal key={p} delay={i * 0.05} className="bg-surface p-6 sm:p-8">
                 <li className="list-none">
                   <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
                   <p className="mt-6 text-[17px] leading-snug text-ink">{p}</p>
@@ -116,7 +116,7 @@ export default function ServiceDetails() {
             </ol>
           </div>
           <Reveal className="lg:col-span-4 lg:col-start-9">
-            <div className="rounded-2xl bg-ink p-7 text-white lg:sticky lg:top-28">
+            <div className="rounded-2xl bg-inverse p-7 text-white lg:sticky lg:top-28">
               <p className="eyebrow text-white/45">Relevant technologies</p>
               <ul className="mt-5 space-y-2.5">
                 {s.technologies.map((t) => <li key={t} className="flex items-center justify-between border-b border-white/10 pb-2.5 font-display text-[17px] last:border-0">{t}<span className="h-1.5 w-1.5 rounded-full bg-brand-emerald" aria-hidden /></li>)}

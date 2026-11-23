@@ -6,10 +6,10 @@ import { DraftTag } from '@/components/Notice/DraftNotice';
 import { cn } from '@/utils/cn';
 
 const tints: Record<string, string> = {
-  rental: 'bg-[#EAF4EF]',
-  cabs: 'bg-[#E9F1F3]',
-  resume: 'bg-[#F1F3F2]',
-  music: 'bg-[#141719]',
+  rental: 'bg-[#0E0E10]',
+  cabs: 'bg-[#0E0E10]',
+  resume: 'bg-[#0E0E10]',
+  music: 'bg-[#0E0E10]',
 };
 
 /** Editorial project tile: image-led stage, quiet metadata row underneath. */
@@ -37,7 +37,7 @@ export function ProjectCard({ project, size = 'md', index }: { project: Project;
           <span className={cn('rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] backdrop-blur', project.mock === 'music' ? 'bg-white/10 text-white/80' : 'bg-white/80 text-muted')}>Interface demo</span>
           {project.draft && <DraftTag>Draft</DraftTag>}
         </div>
-        <span className="absolute right-4 top-4 grid h-10 w-10 translate-y-1 place-items-center rounded-full bg-ink text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:right-5 sm:top-5">
+        <span className="absolute right-4 top-4 grid h-10 w-10 translate-y-1 place-items-center rounded-full bg-inverse text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:right-5 sm:top-5">
           <ArrowUpRight className="h-4 w-4" aria-hidden />
         </span>
       </div>

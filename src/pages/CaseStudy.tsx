@@ -66,7 +66,7 @@ export default function CaseStudy() {
           <div className="flex flex-col items-stretch sm:flex-row">
             {p.architecture.map((a, i) => (
               <div key={a.layer} className="flex flex-1 flex-col sm:flex-row sm:items-center">
-                <div className={cn('flex-1 self-stretch rounded-xl p-4 ring-1', i === 0 ? 'bg-ink text-white ring-ink' : 'bg-white ring-line')}>
+                <div className={cn('flex-1 self-stretch rounded-xl p-4 ring-1', i === 0 ? 'bg-inverse text-white ring-ink' : 'bg-surface ring-line')}>
                   <p className={cn('font-mono text-[10.5px] uppercase tracking-widest', i === 0 ? 'text-white/50' : 'text-muted')}>{a.layer}</p>
                   <ul className="mt-2 space-y-1 text-[14px]">{a.items.map((it) => <li key={it}>{it}</li>)}</ul>
                 </div>
@@ -77,7 +77,7 @@ export default function CaseStudy() {
         </Block>
         <Block n="07" title="Key features">
           <div className="grid gap-px overflow-hidden rounded-xl bg-line ring-1 ring-line sm:grid-cols-3">
-            {p.features.map((f) => <div key={f.title} className="bg-white p-5"><p className="font-medium text-ink">{f.title}</p><p className="mt-1 text-[14px] text-muted">{f.description}</p></div>)}
+            {p.features.map((f) => <div key={f.title} className="bg-surface p-5"><p className="font-medium text-ink">{f.title}</p><p className="mt-1 text-[14px] text-muted">{f.description}</p></div>)}
           </div>
         </Block>
         {p.outcomes.length > 0 && (

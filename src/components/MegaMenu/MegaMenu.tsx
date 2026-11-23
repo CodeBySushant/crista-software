@@ -71,7 +71,7 @@ export function ProductsMenu({ onNavigate }: { onNavigate: () => void }) {
           ))}
         </ul>
       </div>
-      <div className="col-span-4 flex flex-col justify-between rounded-xl bg-ink p-6 text-white">
+      <div className="col-span-4 flex flex-col justify-between rounded-xl bg-inverse p-6 text-white">
         <div>
           <p className="eyebrow text-white/45">Building for the future</p>
           <p className="mt-3 font-display text-[22px] font-medium leading-snug tracking-tight">

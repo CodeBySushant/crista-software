@@ -45,7 +45,7 @@ function Placeholder({ children }: { children: string }) {
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="relative overflow-hidden bg-ink text-white">
+    <footer className="relative overflow-hidden bg-inverse text-white">
       <div className="h-px w-full bg-brand-gradient opacity-70" aria-hidden />
       <div className="container pb-10 pt-16 lg:pt-20">
         <div className="grid gap-12 lg:grid-cols-12">

@@ -34,7 +34,7 @@ export function Mock({ kind, className, label = true, labelSide = 'right' }: { k
         {c.phone ? <PhoneFrame dark={c.dark}>{c.render()}</PhoneFrame> : <BrowserFrame url={c.url!} dark={c.dark}>{c.render()}</BrowserFrame>}
       </ScaledCanvas>
       {label && (
-        <figcaption className={cn('pointer-events-none absolute -bottom-3 rounded-full', labelSide === 'left' ? 'left-3' : 'right-3', ' bg-white px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted shadow-soft ring-1 ring-line')}>
+        <figcaption className={cn('pointer-events-none absolute -bottom-3 rounded-full', labelSide === 'left' ? 'left-3' : 'right-3', ' bg-surface px-2.5 py-1 font-mono text-[9.5px] uppercase tracking-[0.12em] text-muted shadow-soft ring-1 ring-line')}>
           Interface demo
         </figcaption>
       )}

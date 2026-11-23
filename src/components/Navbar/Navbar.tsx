@@ -72,11 +72,11 @@ export function Navbar() {
       <header
         className={cn(
           'sticky top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
-          solid ? 'border-b border-line/80 bg-white/85 backdrop-blur-xl' : 'border-b border-transparent bg-transparent',
+          solid ? 'border-b border-line/80 bg-black/70 backdrop-blur-xl' : 'border-b border-transparent bg-transparent',
         )}
         onMouseLeave={hoverClose}
       >
-        <a href="#main" onClick={anchorClick('#main')} className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-ink focus:px-3 focus:py-2 focus:text-sm focus:text-white">
+        <a href="#main" onClick={anchorClick('#main')} className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-inverse focus:px-3 focus:py-2 focus:text-sm focus:text-white">
           Skip to content
         </a>
         <nav className="container flex h-16 items-center justify-between gap-6" aria-label="Main">
@@ -158,7 +158,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, y: -6 }}
               transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-0 top-full hidden border-b border-line bg-white shadow-[0_30px_60px_-30px_rgba(23,25,28,.25)] lg:block"
+              className="absolute inset-x-0 top-full hidden border-b border-line bg-surface shadow-[0_30px_60px_-30px_rgba(23,25,28,.25)] lg:block"
             >
               <div className="container py-8">
                 {open === 'services' ? <ServicesMenu onNavigate={() => setOpen(null)} /> : <ProductsMenu onNavigate={() => setOpen(null)} />}
@@ -168,7 +168,7 @@ export function Navbar() {
         </AnimatePresence>
       </header>
 
-      <AnimatePresence>{open && <motion.div className="fixed inset-0 z-40 hidden bg-ink/10 lg:block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} aria-hidden />}</AnimatePresence>
+      <AnimatePresence>{open && <motion.div className="fixed inset-0 z-40 hidden bg-inverse/10 lg:block" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} aria-hidden />}</AnimatePresence>
 
       <MobileDrawer open={drawer} onClose={() => setDrawer(false)} />
     </>

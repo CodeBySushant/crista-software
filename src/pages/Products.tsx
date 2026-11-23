@@ -39,7 +39,7 @@ export default function Products() {
                 onClick={() => setCat(f)}
                 className={cn('relative rounded-full px-4 py-2 text-[13.5px] transition-colors', cat === f ? 'text-white' : 'text-muted ring-1 ring-inset ring-line hover:text-ink')}
               >
-                {cat === f && <motion.span layoutId="prod-filter" className="absolute inset-0 rounded-full bg-ink" transition={{ type: 'spring', stiffness: 400, damping: 34 }} />}
+                {cat === f && <motion.span layoutId="prod-filter" className="absolute inset-0 rounded-full bg-inverse" transition={{ type: 'spring', stiffness: 400, damping: 34 }} />}
                 <span className="relative">{f}</span>
               </button>
             ))}

@@ -22,7 +22,7 @@ export default function Portfolio() {
         <h2 id="work-list-h" className="sr-only">Projects</h2>
         <DraftNotice className="mb-10">All entries are drafts pending approval. Visuals are labelled interface demonstrations, not screenshots of client systems, and no outcomes are claimed until verified.</DraftNotice>
 
-        <div className="sticky top-16 z-20 mb-12 border-b border-line bg-white/85 py-3 backdrop-blur-xl">
+        <div className="sticky top-16 z-20 mb-12 border-b border-line bg-black/70 py-3 backdrop-blur-xl">
           <div className="flex gap-1 overflow-x-auto [scrollbar-width:none]" role="group" aria-label="Filter by category">
             {['All', ...projectCategories].map((c) => {
               const n = count(c);
@@ -35,7 +35,7 @@ export default function Portfolio() {
                   onClick={() => setCat(c)}
                   className={cn('relative shrink-0 rounded-full px-4 py-2 text-[13.5px] transition-colors disabled:cursor-not-allowed disabled:opacity-40', cat === c ? 'text-white' : 'text-muted hover:text-ink')}
                 >
-                  {cat === c && <motion.span layoutId="work-filter" className="absolute inset-0 rounded-full bg-ink" transition={{ type: 'spring', stiffness: 400, damping: 34 }} />}
+                  {cat === c && <motion.span layoutId="work-filter" className="absolute inset-0 rounded-full bg-inverse" transition={{ type: 'spring', stiffness: 400, damping: 34 }} />}
                   <span className="relative">{c} <span className="font-mono text-[10.5px] opacity-60">{n}</span></span>
                 </button>
               );

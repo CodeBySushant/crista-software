@@ -16,7 +16,7 @@ type Props = {
 export function PageHero({ eyebrow, title, description, children, aside, dark }: Props) {
   const reduce = useReducedMotion();
   return (
-    <section className={cn('relative -mt-16 overflow-hidden pt-16', dark && 'bg-ink text-white')}>
+    <section className={cn('relative -mt-16 overflow-hidden pt-16', dark && 'bg-inverse text-white')}>
       <div className={cn('fade-mask-b pointer-events-none absolute inset-x-0 top-0 h-[560px]', dark ? 'grid-paper-dark' : 'grid-paper opacity-70')} aria-hidden />
       <div className="container relative pb-16 pt-14 sm:pt-20 lg:pb-24 lg:pt-24">
         <div className={cn('grid gap-12', !!aside && 'lg:grid-cols-12 lg:items-end')}>

@@ -50,7 +50,7 @@ export default function About() {
       </section>
 
       {/* Philosophy — dark band */}
-      <section className="relative overflow-hidden bg-ink py-24 text-white lg:py-32">
+      <section className="relative overflow-hidden bg-inverse py-24 text-white lg:py-32">
         <div className="grid-paper-dark absolute inset-0 opacity-60" aria-hidden />
         <div className="container relative grid gap-12 lg:grid-cols-12 lg:items-center">
           <Reveal className="lg:col-span-6">
@@ -61,7 +61,7 @@ export default function About() {
           <Reveal delay={0.1} className="lg:col-span-6">
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-white/10">
               {principles.slice(0, 4).map((p) => (
-                <div key={p.title} className="bg-ink p-6">
+                <div key={p.title} className="bg-inverse p-6">
                   <p className="font-display text-[17px] font-medium">{p.title}</p>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-white/50">{p.body}</p>
                 </div>
@@ -97,14 +97,14 @@ export default function About() {
         <div className="container">
           <Reveal className="max-w-3xl"><p className="eyebrow">Two fronts</p><h2 className="mt-4 h-section">Software services and product development.</h2></Reveal>
           <div className="mt-14 grid gap-5 lg:grid-cols-2">
-            <Reveal className="rounded-[22px] bg-white p-6 ring-1 ring-line sm:p-10">
+            <Reveal className="rounded-[22px] bg-surface p-6 ring-1 ring-line sm:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">For clients</p>
               <h3 className="mt-4 font-display text-[26px] font-medium tracking-tight">We build what your business needs.</h3>
               <p className="mt-3 text-[15px] text-muted">Web, mobile, custom systems, AI and infrastructure — scoped and engineered around your requirements.</p>
               <div className="mt-8"><Mock kind="web" /></div>
               <div className="mt-10"><Button to="/services" arrow>Our services</Button></div>
             </Reveal>
-            <Reveal delay={0.08} className="rounded-[22px] bg-ink p-6 text-white sm:p-10">
+            <Reveal delay={0.08} className="rounded-[22px] bg-inverse p-6 text-white sm:p-10">
               <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">For the market</p>
               <h3 className="mt-4 font-display text-[26px] font-medium tracking-tight">We build products of our own.</h3>
               <p className="mt-3 text-[15px] text-white/55">Independent products shaped by problems we see across industries — and honest about their stage.</p>
@@ -120,7 +120,7 @@ export default function About() {
         <Reveal className="mb-12"><p className="eyebrow">Values</p><h2 className="mt-4 h-section">What we hold ourselves to.</h2></Reveal>
         <div className="grid gap-px overflow-hidden rounded-[22px] bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
           {values.map(([t, d], i) => (
-            <Reveal key={t} delay={i * 0.05} className="bg-white p-7">
+            <Reveal key={t} delay={i * 0.05} className="bg-surface p-7">
               <p className="font-display text-[44px] font-medium leading-none tracking-tightest text-ink/10">{String(i + 1).padStart(2, '0')}</p>
               <h3 className="mt-8 font-display text-[22px] font-medium">{t}</h3>
               <p className="mt-2 text-[14.5px] text-muted">{d}</p>

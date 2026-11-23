@@ -91,7 +91,7 @@ export function EnquiryForm({ initialService = '', onSubmit }: { initialService?
             key="sent"
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="relative overflow-hidden rounded-[22px] bg-ink p-8 text-white sm:p-12"
+            className="relative overflow-hidden rounded-[22px] bg-inverse p-8 text-white sm:p-12"
             role="status"
             aria-live="polite"
           >
@@ -134,7 +134,7 @@ export function EnquiryForm({ initialService = '', onSubmit }: { initialService?
               <legend className="mb-3 text-[13px] font-medium text-ink">Service required <span className="text-brand-emerald">*</span></legend>
               <div className="flex flex-wrap gap-2" role="radiogroup">
                 {serviceOptions.map((o) => (
-                  <label key={o} className={cn('cursor-pointer select-none rounded-full px-4 py-2.5 text-[13.5px] transition-all', values.service === o ? 'bg-ink text-white' : 'bg-white text-ink ring-1 ring-inset ring-line hover:ring-ink/30')}>
+                  <label key={o} className={cn('cursor-pointer select-none rounded-full px-4 py-2.5 text-[13.5px] transition-all', values.service === o ? 'bg-inverse text-white' : 'bg-surface text-ink ring-1 ring-inset ring-line hover:ring-ink/30')}>
                     <input type="radio" name="service" value={o} checked={values.service === o} onChange={set('service')} className="sr-only" id={o === serviceOptions[0] ? `${uid}-service` : undefined} />
                     {o}
                   </label>
@@ -178,7 +178,7 @@ export function EnquiryForm({ initialService = '', onSubmit }: { initialService?
 
 function inputCls(invalid: unknown) {
   return cn(
-    'h-12 w-full rounded-xl bg-white px-4 text-[15px] text-ink outline-none ring-1 ring-inset transition-shadow placeholder:text-muted/70',
+    'h-12 w-full rounded-xl bg-surface px-4 text-[15px] text-ink outline-none ring-1 ring-inset transition-shadow placeholder:text-muted/70',
     invalid ? 'ring-rose-400 focus:ring-2 focus:ring-rose-400' : 'ring-line hover:ring-ink/25 focus:ring-2 focus:ring-brand-emerald',
   );
 }

@@ -20,12 +20,13 @@ type Props = {
 };
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-ink text-white hover:bg-ink-700 shadow-[inset_0_1px_0_rgba(255,255,255,.08)]',
-  gradient:
-    'text-ink bg-brand-gradient shadow-[0_8px_24px_-10px_rgba(16,185,129,.6)] hover:shadow-[0_10px_30px_-10px_rgba(6,182,212,.7)] hover:brightness-[1.04]',
-  secondary: 'bg-white text-ink ring-1 ring-inset ring-line hover:ring-ink/25 hover:bg-paper-off',
+  // Dark pill with a fine light edge
+  primary: 'bg-[#161618] text-white ring-1 ring-inset ring-white/10 hover:bg-[#1F1F22] hover:ring-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,.08)]',
+  // Main call to action: silver
+  gradient: 'text-black bg-brand-gradient shadow-[0_8px_30px_-12px_rgba(255,255,255,.35)] hover:brightness-110',
+  secondary: 'text-ink ring-1 ring-inset ring-white/15 hover:ring-white/30 hover:bg-white/[0.04]',
   'ghost-dark': 'text-white ring-1 ring-inset ring-white/15 hover:ring-white/40 hover:bg-white/5',
-  light: 'bg-white text-ink hover:bg-white/90',
+  light: 'bg-white text-black hover:bg-white/90',
 };
 
 export function Button({ to, href, variant = 'primary', size = 'md', arrow, external, className, children, type = 'button', onClick, disabled }: Props) {

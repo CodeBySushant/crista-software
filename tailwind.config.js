@@ -5,11 +5,15 @@ export default {
     container: { center: true, padding: { DEFAULT: '1.25rem', md: '2rem', lg: '2.5rem' }, screens: { '2xl': '1320px' } },
     extend: {
       colors: {
-        brand: { green: '#22C55E', emerald: '#10B981', cyan: '#06B6D4' },
-        ink: { DEFAULT: '#17191C', 900: '#17191C', 800: '#1F2226', 700: '#2A2E33', 600: '#3A3F45' },
-        paper: { DEFAULT: '#FFFFFF', off: '#F8FAF9', grey: '#F1F3F2' },
-        line: { DEFAULT: '#E5E7EB', dark: '#2C3136' },
-        muted: { DEFAULT: '#737A80', dark: '#9AA1A7' },
+        // Theme colours come from CSS variables (src/styles/globals.css):
+        // black + silver by default, light values inside `.theme-light`.
+        brand: { green: '#F4F4F5', emerald: '#D4D4D8', cyan: '#A1A1AA' },
+        ink: { DEFAULT: 'rgb(var(--ink) / <alpha-value>)', 900: '#17191C', 800: '#1F2226', 700: '#2A2E33', 600: '#3A3F45' },
+        inverse: 'rgb(var(--inverse) / <alpha-value>)',
+        surface: { DEFAULT: 'rgb(var(--surface) / <alpha-value>)', raised: 'rgb(var(--surface-raised) / <alpha-value>)' },
+        paper: { DEFAULT: 'rgb(var(--paper) / <alpha-value>)', off: 'rgb(var(--paper-off) / <alpha-value>)', grey: 'rgb(var(--paper-grey) / <alpha-value>)' },
+        line: { DEFAULT: 'rgb(var(--line) / <alpha-value>)', dark: '#2C3136' },
+        muted: { DEFAULT: 'rgb(var(--muted) / <alpha-value>)', dark: '#9AA1A7' },
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -17,7 +21,7 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       backgroundImage: {
-        'brand-gradient': 'linear-gradient(110deg, #22C55E 0%, #10B981 48%, #06B6D4 100%)',
+        'brand-gradient': 'linear-gradient(110deg, #FAFAFA 0%, #D4D4D8 50%, #A1A1AA 100%)',
       },
       letterSpacing: { tightest: '-0.045em', tighter2: '-0.03em' },
       boxShadow: {

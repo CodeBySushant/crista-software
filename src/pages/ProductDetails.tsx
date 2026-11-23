@@ -71,7 +71,7 @@ export default function ProductDetails() {
           </Reveal>
           <div className="grid gap-px overflow-hidden rounded-2xl bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-4">
             {p.features.map((f, i) => (
-              <Reveal key={f.title + i} delay={i * 0.05} className="bg-white p-6 sm:p-8">
+              <Reveal key={f.title + i} delay={i * 0.05} className="bg-surface p-6 sm:p-8">
                 <span className="block h-[3px] w-8 rounded-full" style={{ background: `linear-gradient(90deg, ${p.accent.from}, ${p.accent.to})` }} />
                 <h3 className="mt-8 font-display text-[19px] font-medium">{f.title}</h3>
                 <p className="mt-2 text-[14.5px] text-muted">{f.description}</p>

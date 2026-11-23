@@ -30,12 +30,12 @@ export function ScaledCanvas({ width, height, children, className }: { width: nu
 
 export function BrowserFrame({ url, children, dark }: { url: string; children: ReactNode; dark?: boolean }) {
   return (
-    <div className={cn('flex h-full w-full flex-col overflow-hidden rounded-[14px] shadow-frame', dark ? 'bg-ink-800' : 'bg-white')}>
+    <div className={cn('flex h-full w-full flex-col overflow-hidden rounded-[14px] shadow-frame', dark ? 'bg-ink-800' : 'bg-surface')}>
       <div className={cn('flex h-10 shrink-0 items-center gap-2 border-b px-4', dark ? 'border-white/10 bg-ink-900' : 'border-line bg-paper-off')}>
         <span className="h-2.5 w-2.5 rounded-full bg-[#E5E7EB]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#E5E7EB]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#E5E7EB]" />
-        <div className={cn('mx-auto flex h-6 w-[46%] items-center justify-center rounded-md font-mono text-[11px]', dark ? 'bg-white/5 text-white/40' : 'bg-white text-muted ring-1 ring-line')}>
+        <div className={cn('mx-auto flex h-6 w-[46%] items-center justify-center rounded-md font-mono text-[11px]', dark ? 'bg-white/5 text-white/40' : 'bg-surface text-muted ring-1 ring-line')}>
           {url}
         </div>
         <span className="w-[42px]" />
@@ -47,9 +47,9 @@ export function BrowserFrame({ url, children, dark }: { url: string; children: R
 
 export function PhoneFrame({ children, dark }: { children: ReactNode; dark?: boolean }) {
   return (
-    <div className="h-full w-full rounded-[44px] bg-ink p-[9px] shadow-frame">
-      <div className={cn('relative h-full w-full overflow-hidden rounded-[36px]', dark ? 'bg-[#0E1012]' : 'bg-white')}>
-        <div className="absolute left-1/2 top-2.5 z-20 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-ink" />
+    <div className="h-full w-full rounded-[44px] bg-inverse p-[9px] shadow-frame">
+      <div className={cn('relative h-full w-full overflow-hidden rounded-[36px]', dark ? 'bg-[#0E1012]' : 'bg-surface')}>
+        <div className="absolute left-1/2 top-2.5 z-20 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-inverse" />
         <div className={cn('flex h-11 items-end justify-between px-7 pb-1 font-mono text-[11px] font-medium', dark ? 'text-white' : 'text-ink')}>
           <span>9:41</span>
           <span className="flex items-center gap-1">

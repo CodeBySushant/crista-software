@@ -100,12 +100,12 @@ function Hero() {
             <motion.div style={{ y: yPhone }} className="absolute -bottom-10 right-2 w-[30%] max-w-[210px] sm:right-6 lg:-bottom-16 lg:right-0">
               <Mock kind="mobile" label={false} />
             </motion.div>
-            <div className="absolute -left-3 bottom-10 hidden w-[230px] rounded-2xl bg-white p-4 shadow-lift ring-1 ring-line sm:block lg:-left-10">
+            <div className="absolute -left-3 bottom-10 hidden w-[230px] rounded-2xl bg-surface p-4 shadow-lift ring-1 ring-line sm:block lg:-left-10">
               <p className="eyebrow">Release pipeline</p>
               <div className="mt-3 space-y-2">
                 {['Tests passed', 'Image built', 'Deployed to production'].map((t, i) => (
                   <div key={t} className="flex items-center gap-2 text-[12.5px] text-ink">
-                    <span className="grid h-4 w-4 place-items-center rounded-full" style={{ background: i === 2 ? 'linear-gradient(110deg,#22C55E,#06B6D4)' : '#17191C' }}>
+                    <span className="grid h-4 w-4 place-items-center rounded-full" style={{ background: i === 2 ? 'linear-gradient(110deg,#F4F4F5,#A1A1AA)' : '#17191C' }}>
                       <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 text-white"><path d="M2.5 6.2 5 8.5l4.5-5" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
                     </span>
                     {t}
@@ -146,12 +146,12 @@ function Intro() {
 
         <div className="mt-16 grid gap-6 lg:mt-20 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
-            <div className="relative overflow-hidden rounded-[22px] bg-white p-5 ring-1 ring-line sm:p-8">
+            <div className="relative overflow-hidden rounded-[22px] bg-surface p-5 ring-1 ring-line sm:p-8">
               <Mock kind="erp" />
             </div>
           </Reveal>
           <Reveal delay={0.1} className="lg:col-span-4">
-            <div className="relative flex h-full flex-col overflow-hidden rounded-[22px] bg-ink p-6 text-white sm:p-8">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[22px] bg-inverse p-6 text-white sm:p-8">
               <div className="grid-paper-dark fade-mask-b absolute inset-0" aria-hidden />
               <p className="eyebrow relative text-white/45">Systems + intelligence</p>
               <p className="relative mt-5 font-display text-[24px] font-medium leading-snug tracking-tight">
@@ -192,10 +192,10 @@ function WhatWeDo() {
 
       <div className="relative grid gap-5 lg:grid-cols-2">
         {/* A. Services */}
-        <Reveal className="flex flex-col rounded-[24px] bg-white p-7 ring-1 ring-line sm:p-10">
+        <Reveal className="flex flex-col rounded-[24px] bg-surface p-7 ring-1 ring-line sm:p-10">
           <div className="flex items-center justify-between">
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">A — Software Services</span>
-            <span className="h-2 w-2 rounded-full bg-ink" aria-hidden />
+            <span className="h-2 w-2 rounded-full bg-inverse" aria-hidden />
           </div>
           <h3 className="mt-10 font-display text-[30px] font-medium leading-tight tracking-tighter2 sm:text-[36px]">Technology solutions engineered around your business requirements.</h3>
           <ul className="mt-10 divide-y divide-line border-y border-line">
@@ -212,7 +212,7 @@ function WhatWeDo() {
         </Reveal>
 
         {/* B. Products */}
-        <Reveal delay={0.08} className="relative flex flex-col overflow-hidden rounded-[24px] bg-ink p-7 text-white sm:p-10">
+        <Reveal delay={0.08} className="relative flex flex-col overflow-hidden rounded-[24px] bg-inverse p-7 text-white sm:p-10">
           <div className="grid-paper-dark fade-mask-b absolute inset-0" aria-hidden />
           <div className="relative flex items-center justify-between">
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-white/50">B — Software Products</span>
@@ -283,7 +283,7 @@ function OurProducts() {
         <div className="mt-5 grid gap-5 md:grid-cols-2">
           {rest.map((p, i) => (
             <Reveal key={p.slug} delay={i * 0.06}>
-              <Link to={`/products/${p.slug}`} className="group flex h-full flex-col rounded-[22px] bg-white p-6 ring-1 ring-line transition hover:ring-ink/20 sm:p-8">
+              <Link to={`/products/${p.slug}`} className="group flex h-full flex-col rounded-[22px] bg-surface p-6 ring-1 ring-line transition hover:ring-ink/20 sm:p-8">
                 <div className="flex items-center gap-3">
                   <ProductGlyph product={p} />
                   <div className="flex-1"><p className="font-display text-[18px] font-medium tracking-tight">{p.name}</p><p className="eyebrow">{p.category}</p></div>
@@ -336,7 +336,7 @@ function WhyCrista() {
         <SectionHeading index="09" eyebrow="Why Crista" title={<span id="why-h">A Technology Partner, Not Just a Development Vendor.</span>} align="split" intro="Vendors deliver tickets. Partners take responsibility for whether the software works for the business." className="mb-14" />
         <div className="grid gap-px overflow-hidden rounded-[22px] bg-line ring-1 ring-line sm:grid-cols-2 lg:grid-cols-3">
           {principles.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 0.06} className="group relative bg-white p-7 sm:p-9">
+            <Reveal key={p.title} delay={(i % 3) * 0.06} className="group relative bg-surface p-7 sm:p-9">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[11px] text-muted">{String(i + 1).padStart(2, '0')}</span>
                 <Glyph i={i} />
@@ -363,7 +363,7 @@ function Glyph({ i }: { i: number }) {
   ];
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6 transition-transform duration-500 group-hover:rotate-[8deg]" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <defs><linearGradient id={`gl${i}`} x1="0" x2="1"><stop offset="0" stopColor="#22C55E" /><stop offset="1" stopColor="#06B6D4" /></linearGradient></defs>
+      <defs><linearGradient id={`gl${i}`} x1="0" x2="1"><stop offset="0" stopColor="#F4F4F5" /><stop offset="1" stopColor="#A1A1AA" /></linearGradient></defs>
       <path d={paths[i]} stroke={`url(#gl${i})`} />
     </svg>
   );

@@ -9,7 +9,7 @@ import { cn } from '@/utils/cn';
 export function StatusPill({ status, dark }: { status: Product['status']; dark?: boolean }) {
   const live = status === 'Live' || status === 'Beta';
   return (
-    <span className={cn('inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em]', dark ? 'bg-white/10 text-white/75' : 'bg-white text-ink/70 ring-1 ring-line')}>
+    <span className={cn('inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-mono text-[10.5px] uppercase tracking-[0.1em]', dark ? 'bg-white/10 text-white/75' : 'bg-surface text-ink/70 ring-1 ring-line')}>
       <span className={cn('h-1.5 w-1.5 rounded-full', live ? 'bg-brand-green' : status === 'Demonstration' ? 'bg-amber-400' : 'bg-brand-cyan')} />
       {status}
     </span>
@@ -37,7 +37,7 @@ export function ProductShowcase({ product, flip }: { product: Product; flip?: bo
           </div>
           <p className="mt-6 font-display text-[26px] font-medium leading-[1.15] tracking-tighter2 text-ink sm:text-[30px]">{p.tagline}</p>
           <p className="mt-4 text-[15px] leading-relaxed text-muted">{p.description}</p>
-          <div className="mt-6 rounded-xl bg-white p-4 ring-1 ring-line">
+          <div className="mt-6 rounded-xl bg-surface p-4 ring-1 ring-line">
             <p className="eyebrow">Main use case</p>
             <p className="mt-1.5 text-[14px] text-ink">{p.useCase}</p>
           </div>

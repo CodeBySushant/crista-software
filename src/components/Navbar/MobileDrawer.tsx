@@ -36,7 +36,7 @@ export function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => 
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[70] flex flex-col bg-white lg:hidden"
+          className="fixed inset-0 z-[70] flex flex-col bg-surface lg:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

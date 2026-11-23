@@ -28,7 +28,7 @@ export default function Services() {
       </PageHero>
 
       {/* Index strip */}
-      <nav id="service-index" aria-label="Service index" className="sticky top-16 z-30 border-y border-line bg-white/85 backdrop-blur-xl">
+      <nav id="service-index" aria-label="Service index" className="sticky top-16 z-30 border-y border-line bg-black/70 backdrop-blur-xl">
         <ul className="container flex gap-1 overflow-x-auto py-2.5 [scrollbar-width:none]">
           {services.map((s) => (
             <li key={s.slug} className="shrink-0">

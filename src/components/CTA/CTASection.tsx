@@ -13,11 +13,11 @@ export function CTASection({
 }: Props) {
   return (
     <section className="container py-20 lg:py-28" aria-labelledby="cta-title">
-      <Reveal className="relative overflow-hidden rounded-[28px] bg-ink px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-24">
+      <Reveal className="relative overflow-hidden rounded-[28px] bg-inverse px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-24">
         <div className="grid-paper-dark fade-mask-b absolute inset-0" aria-hidden />
         <div
           className="absolute -right-24 top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full opacity-[0.22] blur-3xl"
-          style={{ background: 'radial-gradient(circle, #10B981, #06B6D4 50%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #D4D4D8, #A1A1AA 50%, transparent 70%)' }}
           aria-hidden
         />
         <div className="relative grid gap-10 lg:grid-cols-12 lg:items-end">

@@ -1,36 +1,33 @@
 import { useId } from 'react';
 import { cn } from '@/utils/cn';
 
-/**
- * PLACEHOLDER MARK. Replace the <svg> with the official Crista logo file
- * (keep the gradient and proportions). The wordmark is set in type so it
- * stays crisp at every size.
- */
-export function LogoMark({ className, dark = false }: { className?: string; dark?: boolean }) {
+/** Crista "C" mark (silver). Used for the favicon and large brand moments. */
+export function LogoMark({ className }: { className?: string; dark?: boolean }) {
   const id = useId();
   return (
-    <svg viewBox="0 0 32 32" className={cn('h-7 w-7 shrink-0', className)} aria-hidden>
+    <svg viewBox="0 0 444 488" className={cn('h-7 w-auto shrink-0', className)} aria-hidden>
       <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#22C55E" />
-          <stop offset=".48" stopColor="#10B981" />
-          <stop offset="1" stopColor="#06B6D4" />
+        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#FAFAFA" />
+          <stop offset=".5" stopColor="#D4D4D8" />
+          <stop offset="1" stopColor="#A1A1AA" />
         </linearGradient>
       </defs>
-      <rect width="32" height="32" rx="8" fill={dark ? '#FFFFFF' : '#17191C'} />
-      <path d="M22 7H12.5L5.5 16l7 9H22l-3.2-4.2h-4.4L10.9 16l3.5-4.8h4.4z" fill={`url(#${id})`} />
-      <path d="M24.5 13.2 27.3 16l-2.8 2.8L21.7 16z" fill={`url(#${id})`} />
+      <path fill={`url(#${id})`} fillRule="evenodd" d="M213.8 487L163 486.5L154.8 478.5L146.5 470.5L122 446.4L97.5 422.4L48.8 374.6L0 326.8L-0 243.6L-0 160.5L23.2 137.5L46.5 114.5L104.3 58L162.1 1.5L164.2 0.7L166.2 -0L304.9 0.2L443.5 0.5L407.5 36L371.5 71.4L342.3 100.2L313.1 129L222.6 129L132 129L132 243.5L132 358L221.8 358L311.5 358.1L376.3 422.3L441.1 486.5L441 487.3L441 488L352.8 487.8L264.5 487.5L213.8 487ZM347.1 276.2L314.8 244.5L347.4 212L380 179.5L412.2 211.8L444.5 244L412.5 276L380.5 308L379.9 308L379.4 308L347.1 276.2Z" />
     </svg>
   );
 }
 
-export function Logo({ dark = false, className }: { dark?: boolean; className?: string }) {
+/** Crista wordmark. White on the black theme; `light` gives the black version. */
+export function Logo({ light = false, className }: { light?: boolean; dark?: boolean; className?: string }) {
   return (
-    <span className={cn('inline-flex items-center gap-2.5', className)}>
-      <LogoMark dark={dark} />
-      <span className={cn('font-display text-[17px] font-semibold tracking-[-0.02em]', dark ? 'text-white' : 'text-ink')}>
-        Crista<span className={cn('ml-1 font-normal', dark ? 'text-white/55' : 'text-muted')}>Software</span>
-      </span>
-    </span>
+    <img
+      src={light ? '/brand/crista-logo-black.svg' : '/brand/crista-logo-white.svg'}
+      alt="Crista"
+      width={1489}
+      height={406}
+      className={cn('h-[22px] w-auto select-none', className)}
+      draggable={false}
+    />
   );
 }

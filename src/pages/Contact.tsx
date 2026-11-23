@@ -64,7 +64,7 @@ export default function Contact() {
           </div>
 
           <div className="lg:col-span-8">
-            <Reveal className="rounded-[24px] bg-white p-5 shadow-lift ring-1 ring-line sm:p-10">
+            <Reveal className="rounded-[24px] bg-surface p-5 shadow-lift ring-1 ring-line sm:p-10">
               <div className="mb-8 flex items-center justify-between gap-4 border-b border-line pb-6">
                 <h2 className="font-display text-[24px] font-medium tracking-tight sm:text-[28px]">Project enquiry</h2>
                 <span className="font-mono text-[11px] text-muted"><span className="text-brand-emerald">*</span> required</span>
