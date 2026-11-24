@@ -4,6 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { Button, ArrowLink } from '@/components/Buttons/Button';
+import { HeroCrystal } from '@/components/HeroCrystal/HeroCrystal';
 import { RevealText, Reveal } from '@/components/Motion/Reveal';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import { Mock } from '@/components/Mock/Mock';
@@ -52,19 +53,16 @@ function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const yStage = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -60]);
-  const yPhone = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -130]);
+  const yCrystal = useTransform(scrollYProgress, [0, 1], [0, reduce ? 0 : -80]);
 
   return (
     <section ref={ref} className="relative -mt-16 overflow-hidden pt-16" aria-labelledby="hero-title">
-      <div className="grid-paper fade-mask-b pointer-events-none absolute inset-x-0 top-0 h-[720px] opacity-70" aria-hidden />
-      <div className="container relative pb-10 pt-20 sm:pt-28 lg:pt-36">
+      <div className="container relative grid items-center gap-10 pb-16 pt-16 sm:pt-24 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-12 lg:gap-6 lg:pb-24 lg:pt-10">
+        <div className="lg:col-span-7">
+          <RevealText id="hero-title" text="Engineering Ideas Into Digital Impact." className="h-display max-w-[15ch] text-balance text-ink" />
 
-        <RevealText id="hero-title" text="Engineering Ideas Into Digital Impact." className="h-display max-w-[15ch] text-balance text-ink lg:max-w-[16ch]" />
-
-        <div className="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:gap-10">
           <motion.div
-            className="lg:col-span-4"
+            className="mt-8 max-w-[34rem]"
             initial={reduce ? false : { opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
@@ -75,46 +73,24 @@ function Hero() {
             <p className="mt-4 text-[15.5px] leading-relaxed text-muted">
               From custom software and mobile applications to intelligent automation and our own digital products, Crista turns complex challenges into practical technology.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button to="/services" variant="gradient" size="lg" arrow>Explore Our Services</Button>
               <Button to="/work" variant="secondary" size="lg">View Our Work</Button>
             </div>
-            <dl className="mt-10 hidden grid-cols-2 gap-x-6 gap-y-4 border-t border-line pt-6 text-[13px] lg:grid">
-              {[['Build', 'Web · Mobile · Custom'], ['Think', 'AI · Product design'], ['Run', 'Cloud · DevOps'], ['Own', 'Crista products']].map(([k, v]) => (
-                <div key={k}><dt className="eyebrow">{k}</dt><dd className="mt-1 text-ink">{v}</dd></div>
-              ))}
-            </dl>
-          </motion.div>
-
-          <motion.div
-            className="relative lg:col-span-8"
-            initial={reduce ? false : { opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div style={{ y: yStage }} className="relative lg:mr-8 xl:mr-12">
-              <Mock kind="web" labelSide="left" />
-            </motion.div>
-            <motion.div style={{ y: yPhone }} className="absolute -bottom-10 right-2 w-[30%] max-w-[210px] sm:right-6 lg:-bottom-16 lg:right-0">
-              <Mock kind="mobile" label={false} />
-            </motion.div>
-            <div className="absolute -left-3 bottom-10 hidden w-[230px] rounded-2xl bg-surface p-4 shadow-lift ring-1 ring-line sm:block lg:-left-10">
-              <p className="eyebrow">Release pipeline</p>
-              <div className="mt-3 space-y-2">
-                {['Tests passed', 'Image built', 'Deployed to production'].map((t, i) => (
-                  <div key={t} className="flex items-center gap-2 text-[12.5px] text-ink">
-                    <span className="grid h-4 w-4 place-items-center rounded-full" style={{ background: i === 2 ? 'linear-gradient(110deg,#F4F4F5,#A1A1AA)' : '#17191C' }}>
-                      <svg viewBox="0 0 12 12" className="h-2.5 w-2.5 text-white"><path d="M2.5 6.2 5 8.5l4.5-5" fill="none" stroke="currentColor" strokeWidth="1.8" /></svg>
-                    </span>
-                    {t}
-                  </div>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
+
+        <motion.div
+          className="relative mx-auto w-full max-w-[380px] sm:max-w-[460px] lg:col-span-5 lg:max-w-none"
+          initial={reduce ? false : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <motion.div style={{ y: yCrystal }} className="lg:-mr-10 xl:-mr-20 lg:scale-[1.15] xl:scale-[1.25]">
+            <HeroCrystal />
+          </motion.div>
+        </motion.div>
       </div>
-      <div className="h-16 lg:h-24" />
     </section>
   );
 }
