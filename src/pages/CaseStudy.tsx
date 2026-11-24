@@ -12,7 +12,7 @@ import { cn } from '@/utils/cn';
 export default function CaseStudy() {
   const { slug } = useParams();
   const p = getProject(slug);
-  useDocumentMeta(p?.seo.title ?? 'Project not found', p?.seo.description ?? '');
+  useDocumentMeta(p?.seo.title ?? 'Project not found', p?.seo.description ?? '', { noindex: !p });
   if (!p) return <NotFound />;
 
   const idx = projects.findIndex((x) => x.slug === p.slug);

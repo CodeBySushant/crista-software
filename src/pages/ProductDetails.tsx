@@ -14,7 +14,7 @@ import NotFound from './NotFound';
 export default function ProductDetails() {
   const { slug } = useParams();
   const p = getProduct(slug);
-  useDocumentMeta(p?.seo.title ?? 'Product not found', p?.seo.description ?? '');
+  useDocumentMeta(p?.seo.title ?? 'Product not found', p?.seo.description ?? '', { noindex: !p });
   if (!p) return <NotFound />;
 
   const others = products.filter((x) => x.slug !== p.slug);

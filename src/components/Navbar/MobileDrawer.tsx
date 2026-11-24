@@ -85,7 +85,7 @@ export function MobileDrawer({ open, onClose }: { open: boolean; onClose: () => 
                 </motion.li>
               ))}
             </ul>
-            <a href={company.parentUrl} className="mt-6 inline-flex items-center gap-1 text-[14px] text-muted">
+            <a href={company.parentUrl} target="_blank" rel="noopener" className="mt-6 inline-flex items-center gap-1 text-[14px] text-muted">
               Part of {company.parent} <ArrowUpRight className="h-4 w-4" aria-hidden />
             </a>
           </nav>

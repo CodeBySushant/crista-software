@@ -99,7 +99,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link to="/privacy" className="hover:text-white">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white">Terms and Conditions</Link>
-            <a href={company.parentUrl} className="inline-flex items-center gap-1 hover:text-white">{company.parent} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>
+            <a href={company.parentUrl} target="_blank" rel="noopener" className="inline-flex items-center gap-1 hover:text-white">{company.parent} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>
           </div>
         </div>
       </div>

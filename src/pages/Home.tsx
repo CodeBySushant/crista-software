@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { DEFAULT_DESCRIPTION } from '@/seo/site';
 import { Button, ArrowLink } from '@/components/Buttons/Button';
 import { HeroCrystal } from '@/components/HeroCrystal/HeroCrystal';
 import { RevealText, Reveal } from '@/components/Motion/Reveal';
@@ -22,7 +23,7 @@ import { projects } from '@/data/projects';
 import { industries, principles } from '@/data/navigation';
 
 export default function Home() {
-  useDocumentMeta('', 'Crista Software designs, builds and scales digital products for businesses — and develops its own software products. Ideas Into Impact.');
+  useDocumentMeta('', DEFAULT_DESCRIPTION);
   return (
     <>
       <Hero />

@@ -10,12 +10,12 @@ export const mainNav: NavItem[] = [
 ];
 
 /**
- * Business details. `parentUrl` is still a placeholder — fill in before launch.
+ * Business details.
  */
 export const company = {
   name: 'Crista Software',
   parent: 'Crista Enterprises',
-  parentUrl: '#', // TODO: Crista Enterprises URL
+  parentUrl: 'https://www.cristaenterprises.com',
   tagline: 'Ideas Into Impact.',
   email: 'contact@getcrista.com' as string | null,
   phone: '+91 7857994690' as string | null,

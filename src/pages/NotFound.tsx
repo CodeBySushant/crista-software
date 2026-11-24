@@ -2,7 +2,7 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { Button } from '@/components/Buttons/Button';
 
 export default function NotFound() {
-  useDocumentMeta('Page not found', 'The page you were looking for does not exist.');
+  useDocumentMeta('Page not found', 'The page you were looking for does not exist.', { noindex: true });
   return (
     <section className="container grid min-h-[70vh] place-items-center py-24 text-center">
       <div>

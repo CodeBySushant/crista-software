@@ -1,4 +1,7 @@
-import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+
+// useLayoutEffect in the browser, useEffect during build-time pre-rendering (avoids server warnings).
+const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 import { cn } from '@/utils/cn';
 
 /**
@@ -9,7 +12,7 @@ export function ScaledCanvas({ width, height, children, className }: { width: nu
   const ref = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
 
-  useLayoutEffect(() => {
+  useIsoLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
     const update = () => setScale(el.clientWidth / width);

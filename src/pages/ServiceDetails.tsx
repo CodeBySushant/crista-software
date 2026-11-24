@@ -16,7 +16,7 @@ import { cn } from '@/utils/cn';
 export default function ServiceDetails() {
   const { slug } = useParams();
   const s = getService(slug);
-  useDocumentMeta(s?.seo.title ?? 'Service not found', s?.seo.description ?? '');
+  useDocumentMeta(s?.seo.title ?? 'Service not found', s?.seo.description ?? '', { noindex: !s });
   if (!s) return <NotFound />;
 
   const idx = services.findIndex((x) => x.slug === s.slug);

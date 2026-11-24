@@ -126,7 +126,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <a
-              href={company.parentUrl}
+              href={company.parentUrl} target="_blank" rel="noopener"
               className="hidden items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[13px] text-muted transition-colors hover:text-ink xl:inline-flex"
             >
               {company.parent}

@@ -1,11 +1,22 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import App, { preloadRoute } from './App';
 import './styles/fonts.css';
 import './styles/globals.css';
 
-createRoot(document.getElementById('root')!).render(
+const root = document.getElementById('root')!;
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );
+
+// Pages are pre-rendered to HTML at build time. Load the current page's code first,
+// then attach to that HTML instead of re-drawing it.
+if (root.hasChildNodes()) {
+  preloadRoute(window.location.pathname)
+    .catch(() => undefined)
+    .then(() => hydrateRoot(root, app));
+} else {
+  createRoot(root).render(app);
+}

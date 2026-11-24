@@ -134,7 +134,7 @@ export default function About() {
               <p className="mt-1 font-display text-[24px] font-medium tracking-tight">Part of {company.parent}.</p>
             </div>
           </div>
-          <a href={company.parentUrl} className="inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[14px] font-medium ring-1 ring-line transition hover:ring-ink/30">
+          <a href={company.parentUrl} target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 rounded-full px-5 py-3 text-[14px] font-medium ring-1 ring-line transition hover:ring-ink/30">
             Visit {company.parent} <ArrowUpRight className="h-4 w-4" aria-hidden />
           </a>
         </Reveal>

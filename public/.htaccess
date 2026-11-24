@@ -1,0 +1,36 @@
+# Crista Software — Hostinger (Apache) configuration
+
+Options -Indexes
+DirectorySlash Off
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # One address only: https://getcrista.com (no www, always https)
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://getcrista.com%{REQUEST_URI} [L,R=301]
+
+  # /services → /services/index.html (pre-rendered page)
+  RewriteCond %{REQUEST_FILENAME}/index.html -f
+  RewriteRule ^(.+)$ $1/index.html [L]
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Caching: HTML always fresh, images and icons for a week.
+# (Hashed build files in /assets get a year: see assets/.htaccess.)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|png|jpg|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

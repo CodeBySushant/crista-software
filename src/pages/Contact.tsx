@@ -58,7 +58,7 @@ export default function Contact() {
                   <div className="flex justify-between gap-4"><dt className="text-muted">Phone</dt><dd>{company.phone ? <a href={telHref(company.phone)} className="text-ink hover:underline">{company.phone}</a> : <span className="placeholder-tag">To be added</span>}</dd></div>
                   <div className="flex justify-between gap-4"><dt className="text-muted">Company</dt><dd>{company.name}</dd></div>
                 </dl>
-                <a href={company.parentUrl} className="mt-5 inline-flex items-center gap-1 text-[13.5px] text-muted hover:text-ink">Part of {company.parent} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>
+                <a href={company.parentUrl} target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-1 text-[13.5px] text-muted hover:text-ink">Part of {company.parent} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden /></a>
               </div>
             </Reveal>
           </div>
