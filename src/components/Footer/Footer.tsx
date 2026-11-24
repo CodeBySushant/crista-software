@@ -29,6 +29,7 @@ const cols = [
     title: 'Company',
     links: [
       ['About', '/about'],
+      ['Careers', '/careers'],
       ['Our Work', '/work'],
       ['Contact', '/contact'],
     ],

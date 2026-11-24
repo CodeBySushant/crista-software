@@ -24,6 +24,7 @@ const ProductDetails = lazyPage(() => import('@/pages/ProductDetails'));
 const Portfolio = lazyPage(() => import('@/pages/Portfolio'));
 const CaseStudy = lazyPage(() => import('@/pages/CaseStudy'));
 const About = lazyPage(() => import('@/pages/About'));
+const Careers = lazyPage(() => import('@/pages/Careers'));
 const Contact = lazyPage(() => import('@/pages/Contact'));
 const Legal = lazyPage(() => import('@/pages/Legal'));
 const NotFound = lazyPage(() => import('@/pages/NotFound'));
@@ -37,6 +38,7 @@ export function preloadRoute(pathname: string): Promise<unknown> {
     products: second ? ProductDetails : Products,
     work: second ? CaseStudy : Portfolio,
     about: About,
+    careers: Careers,
     contact: Contact,
     privacy: Legal,
     terms: Legal,
@@ -64,6 +66,7 @@ export function AppShell() {
               <Route path="work" element={<Portfolio />} />
               <Route path="work/:slug" element={<CaseStudy />} />
               <Route path="about" element={<About />} />
+              <Route path="careers" element={<Careers />} />
               <Route path="contact" element={<Contact />} />
               <Route path="privacy" element={<Legal kind="privacy" />} />
               <Route path="terms" element={<Legal kind="terms" />} />

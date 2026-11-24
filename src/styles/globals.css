@@ -99,3 +99,9 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Hide scrollbars on horizontal scrollers (still scrollable by touch, wheel and keyboard). */
+@layer utilities {
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}

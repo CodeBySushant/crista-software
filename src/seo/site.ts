@@ -57,7 +57,7 @@ export function structuredData(meta: PageMeta) {
   const parts = meta.path.split('/').filter(Boolean);
   if (parts.length) {
     const labels: Record<string, string> = {
-      services: 'Services', products: 'Products', work: 'Work', about: 'About',
+      services: 'Services', products: 'Products', work: 'Work', about: 'About', careers: 'Careers',
       contact: 'Contact', privacy: 'Privacy Policy', terms: 'Terms and Conditions',
     };
     graph.push({
